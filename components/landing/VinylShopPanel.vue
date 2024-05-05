@@ -1,0 +1,3 @@
+<template>
+    Vinyl Shop
+</template>

@@ -1,0 +1,3 @@
+<template>
+    Scrum Panel
+</template>
