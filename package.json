@@ -12,6 +12,7 @@
   "dependencies": {
     "bootstrap": "^5.3.2",
     "nuxt": "^3.11.2",
+    "sass": "^1.76.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   }
