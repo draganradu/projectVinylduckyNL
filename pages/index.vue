@@ -6,6 +6,9 @@
 
         <LandingScrumPanel />
         <LandingVinylShopPanel />
+        <LandingServiceCut />
+        <LandingPrintService />
+
         <LandingContactPanel />
       </div>
     </div>

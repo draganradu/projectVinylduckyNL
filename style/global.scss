@@ -19,3 +19,41 @@
     }
   }
 }
+
+.vd {
+  &-color {
+    &-1 {
+      background-color: #13341E;
+    }
+
+    &-2 {
+      background-color: #4E7145;
+    }
+
+    &-3 {
+      background-color: #EB9C35;
+    }
+
+    &-4 {
+      background-color: #C4501B;
+    }
+
+    &-5 {
+      background-color: #8A2B13;
+    }
+
+  }
+}
+
+.vd {
+  &-color-text {
+    &-1 {
+      color: white!important;
+    }
+
+    &-2 {
+      color: black!important;
+    }
+
+  }
+}
