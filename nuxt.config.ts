@@ -5,5 +5,6 @@ export default defineNuxtConfig({
     'bootstrap/dist/css/bootstrap.min.css',
     '@/style/normalization.scss',
     '@/style/global.scss',
-  ]
+  ],
+  modules: ["nuxt-bootstrap-icons"],
 })

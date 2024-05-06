@@ -33,5 +33,8 @@ a {
   .vb-p-b-#{$i} {
     padding-bottom: $i * 2.5vw;
   }
+}
 
+.min-full-height {
+  min-height: 100vh;
 }
