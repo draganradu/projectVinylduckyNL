@@ -3,10 +3,26 @@
     <!-- <Navbar /> -->
     <div class="container-fluid">
       <div class="row">
-        <LandingScrumPanel />
-        <LandingVinylShopPanel />
-        <LandingServiceCut />
-        <LandingPrintService />
+        <LandingPanel color="2" to="scrum">
+          <template #title>Scrum master</template>
+          <template #subtitle>Safe 6.1 Agile Team coach</template>
+        </LandingPanel>
+
+        <LandingPanel color="3" to="vinylShop">
+          <template #title>Vinyl Shop</template>
+          <template #subtitle>Signs and Stickers</template>
+        </LandingPanel>
+
+        <LandingPanel color="4" to="vinylShop/ServicesCutOnDemand">
+          <template #title>Vinyl Cut</template>
+          <template #subtitle>Cut on demand</template>
+        </LandingPanel>
+
+        <LandingPanel color="5" to="/vinylShop/ServicesPrintOnDemand">
+          <template #title>Large Print</template>
+          <template #subtitle>Large format Print on demand</template>
+        </LandingPanel>
+
         <LandingContactPanel />
       </div>
     </div>
