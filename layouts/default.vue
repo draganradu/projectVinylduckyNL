@@ -1,0 +1,4 @@
+<template>
+    asdasda
+    <slot />
+</template>

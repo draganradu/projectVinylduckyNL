@@ -34,6 +34,8 @@
 useHead({
   title: "Vinyl ducky signs stickers and a bit of scrum",
 })
+
+definePageMeta({ layout: "landing"})
 </script>
 
 <style scoped lang="scss">
