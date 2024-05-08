@@ -23,6 +23,7 @@ graph TB
     vinylShop[ShopPage]
     service[ShopPageService]
     product[ShopPageProducts]
+    search[search result]
 
     home --> scrum
     home --> vinylShop
@@ -30,6 +31,7 @@ graph TB
 
     vinylShop --> service
     vinylShop --> product
+    vinylShop --> search
 
     service -.-> |has no user | x[create user]
     product -.-> |has no user | x[create user]
@@ -38,4 +40,4 @@ graph TB
 
 
 ## position
-1 0 [  2 / 003 ]
+1 0 [  2 / 005 ]

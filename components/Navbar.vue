@@ -7,8 +7,9 @@
                 </div>
                 <div class="col-auto">
                     <form class=" d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                            v-model="searchInput">
+                        <button class="btn btn-outline-success" type="submit" @click="handleSearch">Search</button>
                     </form>
                 </div>
                 <div class="col">
@@ -21,8 +22,18 @@
     </nav>
 </template>
 
-<style lang="scss" scoped >
+<script setup>
+const searchInput = ref("");
 
+const handleSearch = (e) => {
+    e.preventDefault()
+    navigateTo(`/search/${searchInput.value}`)
+}
+
+</script>
+
+
+<style lang="scss" scoped>
 $font-size: 2.2em;
 
 .sidebar-icons {
@@ -37,6 +48,6 @@ $font-size: 2.2em;
 
 
 nav {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 </style>
