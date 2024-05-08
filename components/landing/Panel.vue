@@ -23,7 +23,7 @@ const props = defineProps(['color', 'to'])
                     <span class="placeholder col-6">P</span>
                     <span class="placeholder col-7">P</span>
                 </p>
-                Scrum Panel
+                Go to
             </router-link>
         </div>
     </div>
