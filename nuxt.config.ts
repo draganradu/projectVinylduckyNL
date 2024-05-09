@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   ],
   modules: [
     "nuxt-bootstrap-icons",
-    "@vueuse/nuxt"
+    "@vueuse/nuxt",
+    "@pinia/nuxt",
   ],
 })
