@@ -1,4 +1,3 @@
 <template>
-    asdasda
     <slot />
 </template>

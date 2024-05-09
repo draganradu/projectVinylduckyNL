@@ -8,7 +8,7 @@
           <template #subtitle>Safe 6.1 Agile Team coach</template>
         </LandingPanel>
 
-        <LandingPanel color="3" to="vinylShop">
+        <LandingPanel color="3" text="2" to="vinylShop">
           <template #title>Vinyl Shop</template>
           <template #subtitle>Signs and Stickers</template>
         </LandingPanel>
@@ -31,11 +31,22 @@
 </template>
 
 <script setup>
-useHead({
-  title: "Vinyl ducky signs stickers and a bit of scrum",
+// ------------- init
+definePageMeta({ layout: "landing"})
+
+// ------------- SEO
+// useHead({
+//   ...seoDefaultStructure,
+//   title: "Vinyl ducky signs stickers and a bit of scrum",
+// })
+
+useSeoMeta({
+  ...seoDefaultStructure,
+  title: 'vinyl Ducky',
+  ogTitle: 'vinyl Ducky',
 })
 
-definePageMeta({ layout: "landing"})
+
 </script>
 
 <style scoped lang="scss">
