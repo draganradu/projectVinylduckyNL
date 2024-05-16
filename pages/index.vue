@@ -3,26 +3,11 @@
     <LandingWaveLine />
     <div class="container-fluid">
       <div class="row">
-        <LandingPanel color="2" to="scrum">
-          <template #title>Scrum master</template>
-          <template #subtitle>Safe 6.1 Agile Team coach</template>
-        </LandingPanel>
+        <LandingPanel v-for="(page, pageName ) in pages" :key="pageName" :color="page.color" :to="getUrl(pageName)">
 
-        <LandingPanel color="3" text="2" to="vinylShop">
-          <template #title>Vinyl Shop</template>
-          <template #subtitle>Signs and Stickers</template>
+          <template #title>{{ page.title }}</template>
+          <template #subtitle>{{page.subtitle}}</template>
         </LandingPanel>
-
-        <LandingPanel color="4" to="vinylShop/ServicesCutOnDemand">
-          <template #title>Vinyl Cut</template>
-          <template #subtitle>Cut on demand</template>
-        </LandingPanel>
-
-        <LandingPanel color="5" to="/vinylShop/ServicesPrintOnDemand">
-          <template #title>Large Print</template>
-          <template #subtitle>Large format Print on demand</template>
-        </LandingPanel>
-        
         <LandingContactPanel />
       </div>
     </div>
@@ -32,21 +17,21 @@
 
 <script setup>
 // ------------- init
-definePageMeta({ layout: "landing"})
+definePageMeta({ layout: "landing" })
+const appStore = useCounterStore();
+
+// ------------- Data
+const { pages } = appStore;
+
+// ------------- Logic
+const getUrl = appStore.getUrl
 
 // ------------- SEO
-// useHead({
-//   ...seoDefaultStructure,
-//   title: "Vinyl ducky signs stickers and a bit of scrum",
-// })
-
 useSeoMeta({
   ...seoDefaultStructure,
   title: 'vinyl Ducky',
   ogTitle: 'vinyl Ducky',
 })
-
-
 </script>
 
 <style scoped lang="scss">

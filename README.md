@@ -6,7 +6,7 @@
 
 ## Tech stack
 
-Nuxt 3
+Nuxt 3 (3.11)
 Vue 3
 Bootstrap 5
 SCSS (SASS 1.7)
@@ -39,10 +39,10 @@ graph TB
 ```
 
 ## Structure
-// ------------- init
+// ------------- Init and Import
 // ------------- Data
 // ------------- Hooks / methods
-// ------------- logic
+// ------------- Logic
 // ------------- SEO
 
 ## position
