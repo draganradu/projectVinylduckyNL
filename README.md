@@ -4,6 +4,13 @@
 [Jira bord](https://vinylducky.atlassian.net/jira/software/projects/ECBGI/boards/3)
 
 
+## Deploy
+
+```bash
+nuxt generate 
+firebase deploy
+```
+
 ## Tech stack
 
 Nuxt 3 (3.11)

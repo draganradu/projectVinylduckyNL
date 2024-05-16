@@ -15,5 +15,12 @@ export default defineNuxtConfig({
   ],
   imports: {
     dirs: ['stores']
-  }
+  },
+  nitro: {
+    firebase: {
+        nodeVersion: "20",
+        gen: 2,
+    },
+    preset: "firebase"
+}
 })
