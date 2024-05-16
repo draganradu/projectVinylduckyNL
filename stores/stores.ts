@@ -2,6 +2,11 @@ export const useCounterStore = defineStore({
   id: 'appData',
   state: () => {
     return {
+      version: "0.0.1",
+      modes: {
+        maintenance: true,
+        error: true,
+      },
       pages: {
         scrum: {
           "title": "Scrum Master",
