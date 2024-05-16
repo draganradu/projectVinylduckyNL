@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <Navbar /> -->
+    <LandingWaveLine />
     <div class="container-fluid">
       <div class="row">
         <LandingPanel color="2" to="scrum">
@@ -22,7 +22,7 @@
           <template #title>Large Print</template>
           <template #subtitle>Large format Print on demand</template>
         </LandingPanel>
-
+        
         <LandingContactPanel />
       </div>
     </div>

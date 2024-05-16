@@ -26,20 +26,40 @@
       background-color: #13341E;
     }
 
+    &-fill-1 {
+      fill: white;
+    }
+
     &-2 {
       background-color: #4E7145;
+    }
+
+    &-fill-2 {
+      fill: white;
     }
 
     &-3 {
       background-color: #EB9C35;
     }
 
+    &-fill-3 {
+      fill: black;
+    }
+
     &-4 {
       background-color: #C4501B;
     }
 
+    &-fill-4 {
+      fill: white;
+    }
+
     &-5 {
       background-color: #8A2B13;
+    }
+
+    &-fill-5 {
+      fill: white;
     }
 
   }
@@ -48,11 +68,11 @@
 .vd {
   &-color-text {
     &-1 {
-      color: white!important;
+      color: white !important;
     }
 
     &-2 {
-      color: black!important;
+      color: black !important;
     }
 
   }
