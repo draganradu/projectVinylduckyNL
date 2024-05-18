@@ -16,6 +16,7 @@ firebase deploy
 Nuxt 3 (3.11)
 Vue 3
 Bootstrap 5
+Bootstrap Icons 1.11
 SCSS (SASS 1.7)
 MermaidJS
 NPM

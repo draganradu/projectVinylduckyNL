@@ -41,7 +41,7 @@
 <style scoped lang="scss">
 #wave-line {
   position: absolute;
-  bottom: -50px;
+  bottom: 0px;
   left: 0;
   right: 0;
   width: 100%;

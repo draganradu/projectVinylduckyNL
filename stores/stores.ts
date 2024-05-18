@@ -4,6 +4,7 @@ export const useCounterStore = defineStore({
     return {
       version: "0.0.1",
       modes: {
+        modalOpen: true,
         maintenance: true,
         error: true,
       },
@@ -36,6 +37,9 @@ export const useCounterStore = defineStore({
           "url": "vinylShop/ServicesPrintOnDemand",
         },
       },
+      socialMedia :{
+        "instagram": "https://www.instagram.com/vinylduckynl/",
+      }
     }
   },
   getters: {
@@ -47,5 +51,10 @@ export const useCounterStore = defineStore({
       }
     },
   },
+  actions: {
+    toggleModal() {
+      this.modes.modalOpen = !this.modes.modalOpen
+    }
+  }
 })
 

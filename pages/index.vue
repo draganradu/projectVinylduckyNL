@@ -16,6 +16,7 @@
 </template>
 
 <script setup>
+// ------------- 0.0.1
 // ------------- init
 definePageMeta({ layout: "landing" })
 const appStore = useCounterStore();
