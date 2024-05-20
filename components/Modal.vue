@@ -17,13 +17,10 @@ const toggleModal = () => {
               aria-label="Close"></button> -->
           </div>
           <div class="modal-body">
-            <p>We are currently working on a new project so our usual response time is no longer as prompt as it used to
-              be. As usual we will respond with a spring in our step and a smile in our heart, just not as prompt. </p>
-            <p>We appreciate your patience.</p>
             <p>
-              We are currently held up by a new project, if you need to contact us you email us at
-                yellow@vinylducky.nl or
-                by phone 0648459980. We are happy to have a chat.
+              We are currently working on a new project so our usual response time is no longer as prompt as it used to be. As usual, we will respond with a spring in our step and a smile in our hearts, just not as prompt. <br /><br />
+We appreciate your patience.<br /><br />
+We are currently held up by a new project, if you need to contact us you email us at <b>yellow@vinylducky.nl</b> or by phone at <b>0648459980</b>. We are happy to have a chat.
             </p>
                 
                 <dl class="row">

@@ -30,8 +30,8 @@ const getUrl = appStore.getUrl
 // ------------- SEO
 useSeoMeta({
   ...seoDefaultStructure,
-  title: 'vinyl Ducky',
-  ogTitle: 'vinyl Ducky',
+  title: 'Vinyl Ducky - Signs and Stickers',
+  ogTitle: 'Vinyl Ducky - Signs and Stickers',
 })
 </script>
 

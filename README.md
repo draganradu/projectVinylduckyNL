@@ -1,5 +1,9 @@
+<p align="center">
+  <img src="public/img/vinyl-ducky-logo-signs-and-stickers-nederlands-eindhoven.png" width="300" title="vinyl ducky logo">
+</p>
+
 # project Vinylducky.NL
-[img]
+At our core we are thinkerers, and this is one of our projects. We love making demos and letting people have a look. If you found anything interesting just leave a message.
 
 [Jira bord](https://vinylducky.atlassian.net/jira/software/projects/ECBGI/boards/3)
 
@@ -7,19 +11,23 @@
 ## Deploy
 
 ```bash
-nuxt generate 
+npm run generate 
 firebase deploy
 ```
 
 ## Tech stack
 
-Nuxt 3 (3.11)
-Vue 3
-Bootstrap 5
-Bootstrap Icons 1.11
-SCSS (SASS 1.7)
-MermaidJS
-NPM
+| Tech              | Version   | Note  |
+|---                |---        |---    |
+| Nuxt              | 3.11      |       |
+| Vue               | 3         |       |
+| Bootstrap         | 5         |       |
+| Bootstrap Icons   | 1.11      |       |
+| SCSS              | (SASS 1.7) |      |
+| MermaidJS         |           |       |
+| NPM               |           |       |
+| Firebase Hosting  | 9         |       | 
+| Pinia             | 2.1.7     |       |
 
 ## Page Structure
 
