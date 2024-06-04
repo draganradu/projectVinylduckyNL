@@ -39,6 +39,7 @@ export const useCounterStore = defineStore({
       },
       socialMedia :{
         "instagram": "https://www.instagram.com/vinylduckynl/",
+        "git": "https://github.com/draganradu/projectVinylduckyNL",
       }
     }
   },

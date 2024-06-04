@@ -2,14 +2,18 @@
   <img src="public/img/vinyl-ducky-logo-signs-and-stickers-nederlands-eindhoven.png" width="300" title="vinyl ducky logo">
 </p>
 
-# project Vinylducky.NL
+# VinylDucky.nl
+
+Version: __0.0.1__
+Sprint: 1
+
 At our core we are thinkerers, and this is one of our projects. We love making demos and letting people have a look. If you found anything interesting just leave a message.
 
 [Jira bord](https://vinylducky.atlassian.net/jira/software/projects/ECBGI/boards/3)
 
 
 ## Deploy
-
+Static build for firebase.
 ```bash
 npm run generate 
 firebase deploy
@@ -61,5 +65,3 @@ graph TB
 // ------------- Logic
 // ------------- SEO
 
-## position
-1 0 [  7 / 001 ]

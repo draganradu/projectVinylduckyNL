@@ -3,6 +3,7 @@ export const socialMediaIcons = (icon: string) => {
         facebook: 'facebook',
         whatsapp: 'whatsapp',
         instagram: 'instagram',
+        git: 'github',
     }
 
     if (list[icon]) {

@@ -5,7 +5,7 @@ const appStore = useCounterStore();
 <template>
   <div>
     <a v-for="(i, k) in  appStore.socialMedia" target="_blank" :key="k" :href="i">
-      <BootstrapIcon :title="k" :name="socialMediaIcons(k)" />
+      <BootstrapIcon :title="k" :name="socialMediaIcons(k)" class="me-2" />
     </a>
   </div>
 </template>
