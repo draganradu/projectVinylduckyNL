@@ -1,9 +1,20 @@
+
+const listbuild = (list: string[]) => {
+    return list.reduce((acc, key) => {
+        return { [key]: key, ...acc }
+    }, {})
+}
 export const socialMediaIcons = (icon: string) => {
+    console.log()
     const list: { [key: string]: string; } = {
-        facebook: 'facebook',
-        whatsapp: 'whatsapp',
-        instagram: 'instagram',
-        git: 'github',
+        ...listbuild([
+            "facebook", 
+            "whatsapp", 
+            "instagram", 
+            "git", 
+            "behance", 
+            "twitter"
+        ]),
     }
 
     if (list[icon]) {
