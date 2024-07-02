@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   ],
   modules: [
     'nuxt-bootstrap-icons',
+    '@nuxtjs/i18n',
     '@vueuse/nuxt',
     ['@pinia/nuxt', {
       autoImports: ['defineStore', 'acceptHMRUpdate'],
@@ -16,11 +17,20 @@ export default defineNuxtConfig({
   imports: {
     dirs: ['stores']
   },
+  i18n: {
+    lazy: true,
+    langDir: 'locales',
+    strategy: "prefix_except_default",
+    locales: [
+      { code: 'en', iso: 'en-US', name: 'English(US)', file: 'en-US.json' },
+      { code: 'nl', iso: 'nl-NL', name: 'Nederlands', file: 'nl-NL.json' },
+    ],
+  },
   nitro: {
     firebase: {
-        nodeVersion: "20",
-        gen: 2,
+      nodeVersion: "20",
+      gen: 2,
     },
     preset: "firebase"
-}
+  }
 })

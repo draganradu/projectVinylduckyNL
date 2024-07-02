@@ -1,12 +1,12 @@
 <script setup>
 const props = defineProps(['color', 'text', 'to'])
-
+const localPath = useLocalePath()
 </script>
 
 <template>
     <div :class="['landing-panel','col-lg col-md-12 vd-h-100', `vd-color-${color || '1'}`, `vd-color-text-${text || '1'}`]">
         <div class="vb-p-1">
-            <router-link :to="to">
+            <router-link :to="localPath(to)">
                 <h1>
                     <slot name="title" />
                 </h1>
