@@ -1,6 +1,12 @@
-<script setup>
+<script setup lang="ts">
 const props = defineProps(["color", "text", "to", "content"]);
-const localPath = useLocalePath();
+// const localPath = useLocalePath();
+
+const { setLocale, locale } = useI18n() as any;
+
+const linker = (a: string) => {
+  return locale.value + "/" + a;
+};
 </script>
 
 <template>
@@ -13,14 +19,14 @@ const localPath = useLocalePath();
     ]"
   >
     <div class="vb-p-1">
-      <router-link :to="localPath(to)">
+      <nuxt-link :to="linker(to)">
         <h1>
           <slot name="title" />
         </h1>
         <h4>
           <slot name="subtitle" />
         </h4>
-        <hr/>
+        <hr />
         <p v-if="$slots.content"><slot name="content" /></p>
         <p v-else>
           <span class="placeholder col-1">P</span>
@@ -32,11 +38,11 @@ const localPath = useLocalePath();
           <span class="placeholder col-6">P</span>
           <span class="placeholder col-7">P</span>
         </p>
-        <hr/>
+        <hr />
         Go to
 
         <LandingPanelDuck :color="`vd-color-fill-${color}`" />
-      </router-link>
+      </nuxt-link>
     </div>
   </div>
 </template>

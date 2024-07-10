@@ -49,7 +49,6 @@ export const useCounterStore = defineStore({
   getters: {
     getUrl: (state) => {
       return (url: string) => {
-
         // @ts-ignore
         return state.pages[url]['url'] || url
       }
