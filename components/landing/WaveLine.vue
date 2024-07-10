@@ -48,7 +48,15 @@
   z-index: 1;
 }
 
+@media screen and (max-width: 992px) {
+  #wave-line {
+	display: none;
+  }
+}
+
+
 .white {
   fill: white;
 }
+
 </style>

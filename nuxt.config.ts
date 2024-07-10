@@ -20,10 +20,11 @@ export default defineNuxtConfig({
   i18n: {
     lazy: true,
     langDir: 'locales',
-    strategy: "prefix_except_default",
+    strategy: "prefix",
+    defaultLocale: 'en',
     locales: [
-      { code: 'en', iso: 'en-US', name: 'English(US)', file: 'en-US.json' },
       { code: 'nl', iso: 'nl-NL', name: 'Nederlands', file: 'nl-NL.json' },
+      { code: 'en', iso: 'en-US', name: 'English(US)', file: 'en-US.json' },
     ],
   },
   nitro: {

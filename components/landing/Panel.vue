@@ -47,9 +47,16 @@ const linker = (a: string) => {
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .landing-panel {
   position: relative;
   overflow: hidden;
+}
+
+@media screen and (max-width: 992px) {
+  .landing-panel {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }
 </style>

@@ -1,6 +1,7 @@
 <script setup>
 // ------------- init
 const appStore = useCounterStore();
+const localPath = useLocalePath()
 
 // ------------- Data
 const page = appStore.pages["scrum"];
@@ -13,7 +14,7 @@ useHead({
 const data = ref([
   {
     q: "What is up with the stickers",
-    a: "One of my clients needed to make compaling demo events. But they where building a physical product, and that comes with a set of challanges because the iteration look do not look like profesional products, also no lettering descriptions, etc. So we had the chalange o needing a way to brand the products in a permanent looking easy to remove way without damaging the product, so paint was out of the question. Plus our buget could not handle a having a external brand company doing graphis every 2 weeks. when i went to university i worked in a place that did graphics for the national museum of arts so i shoped around for the equitment i needed and the suppliers and we expanded our capabilities to cut stickers and signs to a professional level. ",
+    a: "One of my clients needed to make compelling demo events. But they were building a physical product, and that came with a set of challenges because the iteration did not look like professional products, also no information descriptions were visible, etc. So we had the challenge of needing a way to brand the products in a permanent easy-to-remove way without damaging the product, so paint was out of the question. Plus our budget could not handle having an external brand company doing graphs every 2 weeks. When I went to University I worked in a place that did graphics for the National Museum of Arts so I shopped around for the equipment I needed, signed some contracts with suppliers to let us expand our capabilities to cut stickers and signs to a professional level.",
     show: false,
   },
   {
@@ -47,7 +48,7 @@ const data = ref([
       </div>
     </div>
     <div class="vb-p-t-2">
-      <router-link class="btn btn-outline-light" to="contact">
+      <router-link class="btn btn-outline-light" :to="localPath('contact')">
         Go to contact
       </router-link>
     </div>

@@ -4,7 +4,7 @@ const localPath = useLocalePath()
 
 const handleSearch = (e) => {
   e.preventDefault()
-  navigateTo(`/search/${searchInput.value}`)
+  navigateTo(localPath(`/search/${searchInput.value}`))
 }
 
 </script>

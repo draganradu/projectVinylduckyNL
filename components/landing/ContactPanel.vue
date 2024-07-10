@@ -5,6 +5,8 @@ const dl = {
   IBAN: "NL02KNAB0606447458",
 };
 
+const localPath = useLocalePath()
+
 const { setLocale, locale } = useI18n() as any;
 
 const toggleLang = () => {
@@ -34,11 +36,12 @@ const toggleLang = () => {
         </span>
       </dl>
       <SocialMedia />
-      <div class="vb-p-h-1">
-        <router-link class="btn btn-outline-primary" to="contact">
+      <div class="vb-p-h-1 vb-p-b-4">
+        <router-link class="btn btn-outline-primary" :to="localPath('contact')">
           Go to contact
         </router-link>
       </div>
+      <FooterCopyright />
     </div>
   </div>
 </template>
