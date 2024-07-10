@@ -25,14 +25,14 @@ export const useCounterStore = defineStore({
         cutOnDemand: {
           "title": "Vinyl Cut",
           "subtitle": "Signs and Stickers",
-          "content": "vinyl_body_text",
+          "content": "cut_body_text",
           "color": "4",
           "url": "vinylShop/ServicesCutOnDemand",
         },
         largeFormatPrint: {
           "title": "Large Format Print",
           "subtitle": "Large format Print on demand",
-          "content": "adsasdas",
+          "content": "print_body_text",
           "color": "5",
           "url": "vinylShop/ServicesPrintOnDemand",
         },
