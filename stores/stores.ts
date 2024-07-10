@@ -20,7 +20,8 @@ export const useCounterStore = defineStore({
           "title": "Vinyl Shop",
           "subtitle": "Signs and Stickers",
           "content": "vinyl_body_text",
-          "color": "3"
+          "color": "3",
+          "text_color": "2"	
         },
         cutOnDemand: {
           "title": "Vinyl Cut",
@@ -35,6 +36,7 @@ export const useCounterStore = defineStore({
           "content": "print_body_text",
           "color": "5",
           "url": "vinylShop/ServicesPrintOnDemand",
+          "text_color": "1"	
         },
       },
       socialMedia :{
