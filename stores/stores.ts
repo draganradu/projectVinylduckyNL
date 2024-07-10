@@ -12,20 +12,20 @@ export const useCounterStore = defineStore({
         scrum: {
           "title": "Scrum Master",
           "subtitle": "Safe 6.1 Agile Team coach",
-          "content": "adsasdas",
+          "content": "scrum_body_text",
           "url": "scrum",
           "color": "2"
         },
         vinylShop: {
           "title": "Vinyl Shop",
           "subtitle": "Signs and Stickers",
-          "content": "adsasdas",
+          "content": "vinyl_body_text",
           "color": "3"
         },
         cutOnDemand: {
           "title": "Vinyl Cut",
           "subtitle": "Signs and Stickers",
-          "content": "Cut on demand",
+          "content": "vinyl_body_text",
           "color": "4",
           "url": "vinylShop/ServicesCutOnDemand",
         },

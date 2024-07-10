@@ -1,11 +1,21 @@
-<script setup>
+<script setup lang="ts">
+// ------------- Init and Import
 const appStore = useCounterStore();
 
-const { setLocale } = useI18n()
+// ------------- Data
+const dl = {
+  KVK: "88701778",
+  VAT: "NL004641406B81",
+  IBAN: "NL02KNAB0606447458",
+};
+// ------------- Hooks / methods
 const toggleModal = () => {
-  appStore.toggleModal()
-}
+  appStore.toggleModal();
+};
+// ------------- Logic
+// ------------- SEO
 
+// const { setLocale } = useI18n()
 </script>
 
 <template>
@@ -14,31 +24,40 @@ const toggleModal = () => {
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Hi there stranger,</h5>
-            <button type="button" @click="toggleModal" class="btn-close" data-bs-dismiss="modal"
-              aria-label="Close"></button>
+            <h5 class="modal-title">{{ $t("modal_landing_hi") }}</h5>
+            <button
+              type="button"
+              @click="toggleModal"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
-            <p>
-              [ {{ $t('lang') }} ]
-              We are currently working on a new project so our usual response time is no longer as prompt as it used to be. As usual, we will respond with a spring in our step and a smile in our hearts, just not as prompt. <br /><br />
-We appreciate your patience.<br /><br />
-If you need to contact us you email us at <b>yellow@vinylducky.nl</b> or by phone at <b>0648459980</b>. We are happy to have a chat.
-            </p>
-                
-                <dl class="row">
-                  <dt class="col-sm-2">KVK:</dt>
-                  <dd class="col-sm-9">88701778</dd>
-                  <dt class="col-sm-2">VAT:</dt>
-                  <dd class="col-sm-9">NL004641406B81</dd>
-                  <dt class="col-sm-2">IBAN:</dt>
-                  <dd class="col-sm-9"> NL02KNAB0606447458</dd>
-                </dl>
-                
+            <p
+              v-html="
+                $t('modal_landing_body', {
+                  email: 'yellow@vinylducky.nl',
+                  phone: '0648459980',
+                  b: '<b>',
+                  be: '</b>',
+                })
+              "
+            ></p>
+
+            <dl class="row">
+              <span v-for="(key, value) in dl" :key="key" class="row">
+                <dt class="col-sm-2">{{ value }}:</dt>
+                <dd class="col-sm-9">{{ key }}</dd>
+              </span>
+            </dl>
+
             <SocialMedia />
           </div>
           <div class="modal-footer">
-            <a class="btn btn-primary" href="mailto:yellow@vinylducky.nl"><BootstrapIcon name="envelope-heart-fill" /> Email</a>
+            <a class="btn btn-primary" href="mailto:yellow@vinylducky.nl">
+              <BootstrapIcon name="envelope-heart-fill" /> Email</a
+            >
           </div>
         </div>
       </div>

@@ -27,6 +27,7 @@ useSeoMeta({
 
           <template #title>{{ page.title }}</template>
           <template #subtitle>{{page.subtitle}}</template>
+          <template #content>{{ $t(page.content, {br: ' '}).substring(0,200) }} ...</template>
         </LandingPanel>
         <LandingContactPanel />
       </div>
