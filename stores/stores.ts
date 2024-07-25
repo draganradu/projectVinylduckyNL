@@ -21,7 +21,7 @@ export const useCounterStore = defineStore({
           "subtitle": "Signs and Stickers",
           "content": "vinyl_body_text",
           "color": "3",
-          "text_color": "2"	
+          "text_color": "2"
         },
         cutOnDemand: {
           "title": "Vinyl Cut",
@@ -36,10 +36,10 @@ export const useCounterStore = defineStore({
           "content": "print_body_text",
           "color": "5",
           "url": "vinylShop/ServicesPrintOnDemand",
-          "text_color": "1"	
+          "text_color": "1"
         },
       },
-      socialMedia :{
+      socialMedia: {
         "instagram": "https://www.instagram.com/vinylduckynl/",
         "git": "https://github.com/draganradu/projectVinylduckyNL",
         "behance": "https://www.behance.net/vinylducky",
@@ -57,8 +57,14 @@ export const useCounterStore = defineStore({
     },
   },
   actions: {
-    toggleModal() {
-      this.modes.modalOpen = !this.modes.modalOpen
+    toggleModal(value?: boolean) {
+      if (value !== undefined) {
+        this.modes.modalOpen = value
+        return
+      } else {
+        this.modes.modalOpen = !this.modes.modalOpen
+      }
+
     }
   }
 })

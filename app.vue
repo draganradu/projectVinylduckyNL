@@ -1,6 +1,6 @@
 <script setup>
 const appStore = useCounterStore();
-const { modalOpen } = toRefs(appStore.modes);
+const { modalOpen } = ref(appStore.modes);
 </script>
 
 <template>

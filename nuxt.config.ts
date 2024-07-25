@@ -18,6 +18,9 @@ export default defineNuxtConfig({
     dirs: ['stores']
   },
   i18n: {
+    pages: {
+      tools: false
+    },
     lazy: true,
     langDir: 'locales',
     strategy: "prefix",
