@@ -1,4 +1,6 @@
+<!-- 0.1.0 -->
 <script setup lang="ts">
+// ------------- Props
 const props = defineProps({
   color: { type: String, default: "1" },
   text: { type: String, default: "1" },
@@ -6,8 +8,10 @@ const props = defineProps({
   content: String,
 });
 
-const { locale } = useI18n() as any;
+// ------------- Hooks 
+const { locale } = useI18n();
 
+// ------------- Logic
 const linker = (a: string) => {
   return locale.value + "/" + a;
 };

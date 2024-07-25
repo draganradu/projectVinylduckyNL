@@ -1,12 +1,13 @@
+<!-- 0.1.0 -->
 <script setup lang="ts">
+// ------------- Props
 const props = defineProps({
-  row: {
+  box: {
     type: Object,
-    required: true,
   }
 });
 
-const { size, content } = props.row;
+const { size = 1, content } = props.box || {};
 </script>
 
 <template>

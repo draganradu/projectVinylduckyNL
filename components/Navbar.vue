@@ -1,12 +1,15 @@
 <script setup lang="ts">
-const searchInput = ref("");
+// ------------- Init and Import
 const localPath = useLocalePath()
 
+// ------------- Data
+const searchInput = ref("");
+
+// ------------- Logic
 const handleSearch = (e: MouseEvent) => {
   e.preventDefault()
   navigateTo(localPath(`/search/${searchInput.value}`))
 }
-
 </script>
 
 <template>
@@ -33,9 +36,6 @@ const handleSearch = (e: MouseEvent) => {
   </nav>
 </template>
 
-
-
-
 <style lang="scss" scoped>
 $font-size: 2.2em;
 
@@ -48,7 +48,6 @@ $font-size: 2.2em;
   line-height: 1;
   font-size: $font-size;
 }
-
 
 nav {
   background-color: rgba(0, 0, 0, 0.1);

@@ -5,7 +5,7 @@ const toolStore = useCounterStoreTools();
 const props = defineProps({ 
   row: {
     type: Number,
-    required: true
+    default: 1
   } 
 });
 const showModal = ref(false);
@@ -27,11 +27,7 @@ const add = (size: number) => {
     <BootstrapIcon v-else name="dash-square" @click="showModal = !showModal" class="text-success" />
     <div v-if="showModal" class="card shadow-lg" style="width: 18rem">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item" @click="add(1)">1</li>
-        <li class="list-group-item" @click="add(2)">2</li>
-        <li class="list-group-item" @click="add(4)">4</li>
-        <li class="list-group-item" @click="add(9)">9</li>
-        <li class="list-group-item" @click="add(12)">12</li>
+        <li class="list-group-item" v-for="i in boxSize" @click="add(i)">{{ i }}</li>
       </ul>
     </div>
   </div>

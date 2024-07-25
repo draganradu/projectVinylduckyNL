@@ -1,21 +1,12 @@
+<!-- 0.1.0 -->
 <script setup lang="ts">
 // ------------- Init and Import
 const appStore = useCounterStore();
 
-// ------------- Data
-const dl = {
-  KVK: "88701778",
-  VAT: "NL004641406B81",
-  IBAN: "NL02KNAB0606447458",
-};
-// ------------- Hooks / methods
+// ------------- Logic
 const toggleModal = () => {
   appStore.toggleModal();
 };
-// ------------- Logic
-// ------------- SEO
-
-// const { setLocale } = useI18n()
 </script>
 
 <template>
@@ -25,28 +16,20 @@ const toggleModal = () => {
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">{{ $t("modal_landing_hi") }}</h5>
-            <button
-              type="button"
-              @click="toggleModal"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <button type="button" @click="toggleModal" class="btn-close" data-bs-dismiss="modal"
+              aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p
-              v-html="
-                $t('modal_landing_body', {
-                  email: 'yellow@vinylducky.nl',
-                  phone: '0648459980',
-                  b: '<b>',
-                  be: '</b>',
-                })
-              "
-            ></p>
+            <p v-html="$t('modal_landing_body', {
+              email: compVdContact.email,
+              phone: compVdContact.phone,
+              b: '<b>',
+              be: '</b>',
+            })
+              "></p>
 
             <dl class="row">
-              <span v-for="(key, value) in dl" :key="key" class="row">
+              <span v-for="(key, value) in compVdData" :key="key" class="row">
                 <dt class="col-sm-2">{{ value }}:</dt>
                 <dd class="col-sm-9">{{ key }}</dd>
               </span>
@@ -56,8 +39,8 @@ const toggleModal = () => {
           </div>
           <div class="modal-footer">
             <a class="btn btn-primary" href="mailto:yellow@vinylducky.nl">
-              <BootstrapIcon name="envelope-heart-fill" /> Email</a
-            >
+              <BootstrapIcon name="envelope-heart-fill" /> Email
+            </a>
           </div>
         </div>
       </div>
@@ -65,7 +48,7 @@ const toggleModal = () => {
   </div>
 </template>
 
-<style>
+<style lang="scss">
 .modal-background {
   background-color: rgba(0, 0, 0, 0.6);
   position: fixed;

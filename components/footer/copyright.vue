@@ -1,6 +1,9 @@
+<!-- 0.1.0 -->
 <template>
-    <hr/>
-    Projects: <NuxtLink to="en/tools/">Tools</NuxtLink>
-    <hr/>
-    <div class="copyright">Copyright © 2012 - 2024 Vinylducky ZZP®. All rights reserved.</div>
+  <hr />
+  {{ $t("projects") }}: <NuxtLink to="en/tools/">{{ $t("tools") }}</NuxtLink>
+  <hr />
+  <div class="copyright">
+    {{ $t("copyright_footer") }}
+  </div>
 </template>
