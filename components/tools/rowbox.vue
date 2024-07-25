@@ -1,5 +1,16 @@
 <script setup lang="ts">
-const props = defineProps(["template-size", "row"]);
+
+const props = defineProps({
+  "template-size": { 
+    type: Number, 
+    default: 2
+  },
+  row: { 
+    type: Number, 
+    default: 1
+  },
+});
+
 </script>
 
 
