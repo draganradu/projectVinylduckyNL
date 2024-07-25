@@ -1,8 +1,8 @@
-<script setup>
+<script setup lang="ts">
 const searchInput = ref("");
 const localPath = useLocalePath()
 
-const handleSearch = (e) => {
+const handleSearch = (e: MouseEvent) => {
   e.preventDefault()
   navigateTo(localPath(`/search/${searchInput.value}`))
 }

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 // ------------- 0.0.1
 // ------------- init
 definePageMeta({ layout: "landing" })
@@ -11,6 +11,7 @@ const { pages } = appStore;
 const getUrl = appStore.getUrl
 
 // ------------- SEO
+// TODO: ECBGI-118
 useSeoMeta({
   ...seoDefaultStructure,
   title: 'Vinyl Ducky - Signs and Stickers',

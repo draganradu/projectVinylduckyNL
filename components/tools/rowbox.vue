@@ -1,12 +1,12 @@
 <script setup lang="ts">
 
 const props = defineProps({
-  "template-size": { 
-    type: Number, 
+  templateSize: {
+    type: Number,
     default: 2
   },
-  row: { 
-    type: Number, 
+  row: {
+    type: Number,
     default: 1
   },
 });
@@ -15,12 +15,9 @@ const props = defineProps({
 
 
 <template>
-  <div
-    class="row-box"
-    :style="{
-      'grid-template-columns': `repeat(${props.templateSize || 2}, 1fr)`,
-    }"
-  >
+  <div class="row-box" :style="{
+    'grid-template-columns': `repeat(${props.templateSize}, 1fr)`,
+  }">
     <slot />
     <ToolsBoxAddBox :row="row" class="show-on-hover" />
   </div>
@@ -36,6 +33,7 @@ const props = defineProps({
       display: block;
     }
   }
+
   .show-on-hover {
     display: none;
   }

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 // ------------- init
 const appStore = useCounterStore();
 const localPath = useLocalePath()
