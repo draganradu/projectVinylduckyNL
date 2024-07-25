@@ -2,7 +2,12 @@
 // ------------- init
 const toolStore = useCounterStoreTools();
 
-const props = defineProps(["row"]);
+const props = defineProps({ 
+  row: {
+    type: Number,
+    required: true
+  } 
+});
 const showModal = ref(false);
 
 const add = (size: number) => {
@@ -16,14 +21,9 @@ const add = (size: number) => {
 };
 </script>
 
-<template >
+<template>
   <div type="button" class="add-btn">
-    <BootstrapIcon
-      v-if="!showModal"
-      name="plus-square-fill"
-      class="text-success"
-      @click="showModal = !showModal"
-    />
+    <BootstrapIcon v-if="!showModal" name="plus-square-fill" class="text-success" @click="showModal = !showModal" />
     <BootstrapIcon v-else name="dash-square" @click="showModal = !showModal" class="text-success" />
     <div v-if="showModal" class="card shadow-lg" style="width: 18rem">
       <ul class="list-group list-group-flush">

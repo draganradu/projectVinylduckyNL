@@ -1,8 +1,12 @@
 <script setup lang="ts">
-const props = defineProps(["color", "text", "to", "content"]);
-// const localPath = useLocalePath();
+const props = defineProps({
+  color: { type: String, default: "1" },
+  text: { type: String, default: "1" },
+  to: { type: String, default: "/" },
+  content: String,
+});
 
-const { setLocale, locale } = useI18n() as any;
+const { locale } = useI18n() as any;
 
 const linker = (a: string) => {
   return locale.value + "/" + a;
@@ -10,14 +14,12 @@ const linker = (a: string) => {
 </script>
 
 <template>
-  <div
-    :class="[
-      'landing-panel',
-      'col-lg col-md-12 vd-h-100',
-      `vd-color-${color || '1'}`,
-      `vd-color-text-${text || '1'}`,
-    ]"
-  >
+  <div :class="[
+    'landing-panel',
+    'col-lg col-md-12 vd-h-100',
+    `vd-color-${color}`,
+    `vd-color-text-${text}`,
+  ]">
     <div class="vb-p-1">
       <nuxt-link :to="linker(to)">
         <h1>
@@ -27,7 +29,9 @@ const linker = (a: string) => {
           <slot name="subtitle" />
         </h4>
         <hr />
-        <p v-if="$slots.content"><slot name="content" /></p>
+        <p v-if="$slots.content">
+          <slot name="content" />
+        </p>
         <p v-else>
           <span class="placeholder col-1">P</span>
           <span class="placeholder col-6">P</span>

@@ -1,9 +1,14 @@
 <script setup lang="ts">
-const props = defineProps(["color"]);
+const props = defineProps({ 
+  color: {
+    type: String,
+    required: true
+  } 
+});
 </script>
 
 <template>
-  <svg :class="['duck', color]" version="1.1" xmlns="http://www.w3.org/2000/svg"
+  <svg :class="['duck', props.color]" version="1.1" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="190 100 512 492" xml:space="preserve">
     <g>
       <path d="M498.8,309.4c-0.7,2.4-1.3,4.8-2.1,7.1c-5.9,17.6-20.9,28.1-40.6,28.4c-6,0.1-12,0-18,0.1
