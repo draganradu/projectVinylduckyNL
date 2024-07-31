@@ -2,11 +2,11 @@
 // ------------- init
 const toolStore = useCounterStoreTools();
 
-const props = defineProps({ 
+const props = defineProps({
   row: {
     type: Number,
     default: 1
-  } 
+  }
 });
 const showModal = ref(false);
 
@@ -14,9 +14,7 @@ const add = (size: number) => {
   showModal.value = !showModal;
   toolStore.addBox(props.row, {
     id: "dd",
-    size: size,
-    content: "m4",
-    rules: "xx",
+    in: new Array(size).fill({ content: "m4", rules: "xx" })
   });
 };
 </script>

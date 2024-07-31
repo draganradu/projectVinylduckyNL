@@ -10,15 +10,13 @@ const props = defineProps({
   }
 });
 
-const { size = 1, content } = props.box || {};
 </script>
 
 <template>
-  <div class="box" :style="`height: ${templateSize}px;`">
-    <div class="demo">{{ props }}</div>
-    <div :class="['box-structure', `box-size-${box?.size}`]">
-      <div v-for="i in box?.size" :key="i" class="drawers">
-        <h3>{{ content }}</h3>
+  <div :class="['box']" :style="`height: ${templateSize}px;`">
+    <div :class="['box-structure', `box-size-${props.box?.in.length}`]">
+      <div v-for="i in box?.in" :key="i" :class="['drawers', i?.highlight ? 'highlight' : ''	]">
+        <h3>{{ i.content }}{{ i.highlight ? "xx": "" }}</h3>
       </div>
     </div>
     <ToolsBoxRemoveBox class="remove" />
@@ -49,6 +47,10 @@ const { size = 1, content } = props.box || {};
     right: 0;
     top: 0;
     display: none;
+  }
+
+  .highlight {
+    background-color: red;
   }
 }
 

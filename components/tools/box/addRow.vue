@@ -6,9 +6,7 @@ const add = (size: number) => {
   showModal.value = !showModal;
   toolStore.addRow({
     id: "dd",
-    size: size,
-    content: "m4",
-    rules: "xx",
+    in: new Array(size).fill({ content: "m4", rules: "xx" })
   });
 };
 </script>

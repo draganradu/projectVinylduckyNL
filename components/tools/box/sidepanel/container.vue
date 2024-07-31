@@ -1,4 +1,18 @@
 <script setup lang="ts">
+
+
+const toolStore = useCounterStoreTools();
+
+const searchBar = ref("");
+const fieldModifier = (e: KeyboardEvent) => {
+  toolStore.runSearch(searchBar.value);
+}
+
+
+
+
+
+
 </script>
 
 <template>
@@ -9,6 +23,8 @@
           type="text"
           class="form-control"
           aria-label="Text input with dropdown button"
+          @keyup="fieldModifier"
+          v-model="searchBar"
         />
       </div>
 

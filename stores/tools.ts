@@ -1,8 +1,21 @@
+import Fuse from 'fuse.js';
+
 // 0 | Store types
-export type boxRow = { id: string, size: number, content: string, rules: string }
+export type boxRow = { id: string, highlight?: boolean, in: { content: string, rule?: string, highlight?: boolean }[] }
 
 export type StoreTools = {
   boxes: boxRow[][]
+}
+
+type ruleOperator = (data: string) => boolean
+const superA: ruleOperator = (data: string) => {
+  return data.length === 6
+}
+
+const logicRules: { [key: string]: ruleOperator } = {
+  m4: (data: string) => {
+    return data.length === 6
+  },
 }
 
 // 1 | Store Data
@@ -12,16 +25,36 @@ export const useCounterStoreTools = defineStore(
     state: (): StoreTools => ({
       boxes: [
         [
-          { id: "aa", size: 4, content: "m4", rules: "xx" },
-          { id: "bb", size: 12, content: "m4", rules: "xx" },
-          { id: "bb", size: 9, content: "m4", rules: "xx" },
+          {
+            id: "aa", in: [
+              { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: 'm4' }
+            ]
+          },
+          {
+            id: "ab", in: [
+              { content: "m2", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }
+            ]
+          },
+          {
+            id: "ac", in: [
+              { content: "m20", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }
+            ]
+          },
         ],
         [
-          { id: "cc", size: 2, content: "m4", rules: "xx" },
+          {
+            id: "ba", in: [
+              { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" },
+            ]
+          },
         ],
         [
-          { id: "dd", size: 1, content: "m4", rules: "xx" },
-        ]
+          {
+            id: "bc", in: [
+              { content: "m4", rule: "xx" },
+            ]
+          },
+        ],
       ]
     }),
 
@@ -59,6 +92,86 @@ export const useCounterStoreTools = defineStore(
         const newList = [...this.boxes]
         newList.splice(0, 1)
         this.boxes = newList
-      }
+      },
+
+      addHighlight(text: string) {
+        this.boxes.forEach((row) => {
+          row.forEach((item) => {
+            item.in.forEach((itemIn) => {
+              if (itemIn.rule === text) {
+                itemIn.highlight = true
+              }
+            })
+          })
+        })
+      },
+      removeHighlight() {
+        this.boxes.forEach((row) => {
+          row.forEach((item) => {
+            item.in.forEach((itemIn) => {
+              itemIn.highlight = false
+            })
+          })
+        })
+      },
+
+      runApplyRules(searchValue: string) {
+        this.boxes.forEach((row) => {
+          row.forEach((item) => {
+            item.in.forEach((itemIn) => {
+              if (itemIn.rule && logicRules[itemIn.rule]) {
+                // logic rule
+                // console.log("we have a logic rule")
+              } else {
+                // string rule
+                // console.log("we have a string rule")
+              }
+            })
+          })
+        })
+      },
+      runSearch(searchValue: string) {
+        // fuz test
+
+        const flat = JSON.parse(JSON.stringify(this.boxes.flat()))
+        const results = new Fuse(flat, {
+          threshold: 0.4,
+          minMatchCharLength: 2,
+          keys: ['in.content', 'in.rules', 'id'],
+        })
+          .search(searchValue)
+          .map((x) => {
+            return x.item
+          }) as boxRow[];
+
+          const highlightBox = results.reduce((acc: any, item: any) => {
+            return [...acc, item.id]
+          },[])
+
+          const highlightDrawer = new Fuse(results[0].in, {
+            threshold: 0.4,
+            minMatchCharLength: 2,
+            keys: ['content', 'rule'],
+          })
+          .search(searchValue)
+          .map((x) => {
+            return x.item
+          }).reduce((acc: any, item: any) => {
+            return [...acc, item.content]
+          },[])
+
+        console.log(highlightBox, highlightDrawer);
+
+
+        // what rule apply
+        this.runApplyRules(searchValue)
+        // highlight box
+        this.removeHighlight()
+        this.addHighlight(searchValue)
+        // show sidebar text
+
+        // after search
+        console.log("xa", searchValue)
+      },
     },
   })
