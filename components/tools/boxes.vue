@@ -4,6 +4,9 @@
 const props = defineProps({
   box: {
     type: Object,
+  },
+  templateSize: {
+    type: Number,
   }
 });
 
@@ -11,10 +14,10 @@ const { size = 1, content } = props.box || {};
 </script>
 
 <template>
-  <div class="box">
+  <div class="box" :style="`height: ${templateSize}px;`">
     <div class="demo">{{ props }}</div>
-    <div :class="['box-structure', `box-size-${size}`]">
-      <div v-for="i in size" :key="i" class="drawers">
+    <div :class="['box-structure', `box-size-${box?.size}`]">
+      <div v-for="i in box?.size" :key="i" class="drawers">
         <h3>{{ content }}</h3>
       </div>
     </div>
@@ -24,13 +27,12 @@ const { size = 1, content } = props.box || {};
 
 <style scoped lang="scss">
 .demo {
-  display: none;
+  // display: none;
 }
 
 .box {
   border: 1px solid black;
   padding: 10px;
-  height: 200px;
   display: flex;
   flex-direction: column;
   width: 100%;

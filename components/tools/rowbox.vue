@@ -20,11 +20,11 @@ const props = defineProps({
     'grid-template-columns': `repeat(${props.templateSize}, 1fr)`,
   }">
     <slot />
-    <ToolsBoxAddBox :row="row" class="show-on-hover" />
+    <ToolsBoxAddBox :row="row" />
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 .row-box {
   display: grid;
   padding-right: 50px;

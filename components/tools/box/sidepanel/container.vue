@@ -1,5 +1,8 @@
+<script setup lang="ts">
+</script>
+
 <template>
-  <div class="card" style="width: 18rem">
+  <div class="card">
     <div class="card-body">
       <div class="vb-p-b-1">
         <input
@@ -20,3 +23,9 @@
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+.card {
+  max-width: 400px;
+}
+</style>

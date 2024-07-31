@@ -22,11 +22,11 @@ const add = (size: number) => {
 </script>
 
 <template>
-  <div type="button" class="add-btn">
+  <div type="button" :class="['add-btn', !showModal ? 'show-on-hover' : '']">
     <BootstrapIcon v-if="!showModal" name="plus-square-fill" class="text-success" @click="showModal = !showModal" />
     <BootstrapIcon v-else name="dash-square" @click="showModal = !showModal" class="text-success" />
     <div v-if="showModal" class="card shadow-lg" style="width: 18rem">
-      <ul class="list-group list-group-flush">
+      <ul class="list list-group list-group-flush">
         <li class="list-group-item" v-for="i in boxSize" @click="add(i)">{{ i }}</li>
       </ul>
     </div>
@@ -38,5 +38,10 @@ const add = (size: number) => {
   text-align: right;
   position: absolute;
   right: 10px;
+}
+
+.list {
+  position: relative;
+  z-index: 1;
 }
 </style>

@@ -36,6 +36,15 @@ export const useCounterStoreTools = defineStore(
         );
 
         return totalSize
+      },
+      longestRow: (state: StoreTools): number => {
+        return state.boxes.reduce(
+          (accumulator: number, currentValue: boxRow[]) => {
+            const rowSize = currentValue.length
+            return accumulator > rowSize ? accumulator : rowSize
+          },
+          1,
+        );
       }
     },
 
@@ -46,5 +55,10 @@ export const useCounterStoreTools = defineStore(
       addRow(item: boxRow) {
         this.boxes.push([item])
       },
+      removeBox() {
+        const newList = [...this.boxes]
+        newList.splice(0, 1)
+        this.boxes = newList
+      }
     },
   })
