@@ -16,7 +16,7 @@ const props = defineProps({
   <div :class="['box']" :style="`height: ${templateSize}px;`">
     <div :class="['box-structure', `box-size-${props.box?.in.length}`]">
       <div v-for="i in box?.in" :key="i" :class="['drawers', i?.highlight ? 'highlight' : ''	]">
-        <h3>{{ i.content }}{{ i.highlight ? "xx": "" }}</h3>
+        <h3>{{ i.content }}</h3>
       </div>
     </div>
     <ToolsBoxRemoveBox class="remove" />

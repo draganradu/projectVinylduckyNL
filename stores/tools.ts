@@ -4,8 +4,11 @@ import Fuse from 'fuse.js';
 export type boxRow = { id: string, highlight?: boolean, in: { content: string, rule?: string, highlight?: boolean }[] }
 
 export type StoreTools = {
-  boxes: boxRow[][]
+  boxes: boxRow[][],
+  searchResult: Searchable[] | []
 }
+
+export type Searchable = { id: [number, number, number], content: string, rule?: string }
 
 type ruleOperator = (data: string) => boolean
 const superA: ruleOperator = (data: string) => {
@@ -26,36 +29,119 @@ export const useCounterStoreTools = defineStore(
       boxes: [
         [
           {
-            id: "aa", in: [
-              { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: 'm4' }
+            id: "surubu plastic", in: [
+              { content: "cepuri", rule: "<5 3 4 5" }, 
+              { content: "cepuri", rule: "6" }, 
+              { content: "cepuri", rule: "8" }, 
+              { content: "cepuri", rule: '10' },
+
+              { content: "suruburi plastic", rule: "4" }, 
+              { content: "suruburi plastic", rule: "6" }, 
+              { content: "suruburi plastic", rule: "8" }, 
+              { content: "suruburi plastic", rule: '' },
+
+              { content: "bits", rule: "pz2" }, 
+              { content: "m4", rule: "xx" }, 
+              { content: "m4", rule: "xx" }, 
+              { content: "m4", rule: 'm4' },
             ]
           },
           {
-            id: "ab", in: [
-              { content: "m2", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }
+            id: "middle empty", in: [
+              { content: "", rule: "" }, 
+              { content: "", rule: "" },
+              { content: "", rule: "" },
+              { content: "", rule: "" },
+
+              { content: "", rule: "" }, 
+              { content: "", rule: "" },
+              { content: "", rule: "" },
+              { content: "", rule: "" },
+
+              { content: "", rule: "" }, 
+              { content: "", rule: "" },
+              { content: "", rule: "" },
+              { content: "", rule: "" },
             ]
           },
           {
-            id: "ac", in: [
-              { content: "m20", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" }
+            id: "middle empty", in: [
+              { content: "", rule: "" }, 
+              { content: "L braket", rule: "" },
+
+              { content: "Bicicleta", rule: "" }, 
+              { content: "Q Brick separatoare", rule: "" },
             ]
           },
         ],
         [
           {
-            id: "ba", in: [
-              { content: "m4", rule: "xx" }, { content: "m4", rule: "xx" },
+            id: "hole screw T", in: [
+              { content: "3.5 x <25", rule: "hole screw T" }, 
+              { content: "3.5 x 35", rule: "hole screw T" }, 
+              { content: "3.5 x 50", rule: "hole screw T" }, 
+              { content: "3.5 x 75", rule: "hole screw T" }, 
+
+              { content: "5 x <25", rule: "hole screw T" }, 
+              { content: "5 x 35", rule: "hole screw T" }, 
+              { content: "5 x 50", rule: "hole screw T" }, 
+              { content: "5 x 75", rule: "hole screw T" }, 
+
+              { content: "8 x <25", rule: "hole screw T" }, 
+              { content: "8 x 35", rule: "hole screw T" }, 
+              { content: "8 x 50", rule: "hole screw T" }, 
+              { content: "8 x 75", rule: "hole screw T" }, 
+            ]
+          }, 
+        ],
+        [
+          {
+            id: "hole screw V", in: [
+              { content: "3.5 x <25", rule: "hole screw v" }, 
+              { content: "3.5 x 35", rule: "hole screw V" }, 
+              { content: "3.5 x 50", rule: "hole screw V" }, 
+              { content: "3.5 x 75", rule: "hole screw v" }, 
+
+              { content: "5 x <25", rule: "hole screw V" }, 
+              { content: "5 x 35", rule: "hole screw V" }, 
+              { content: "5 x 50", rule: "hole screw V" }, 
+              { content: "5 x 75", rule: "hole screw V" }, 
+
+              { content: "8 x <25", rule: "hole screw V" }, 
+              { content: "8 x 35", rule: "hole screw V" }, 
+              { content: "8 x 50", rule: "hole screw V" }, 
+              { content: "8 x 75", rule: "hole screw v" }, 
+            ]
+          },
+
+          {
+            id: "dibluri", in: [
+              { content: "<6", rule: "Dibluri" }, 
+              { content: "3.5 x 35", rule: "hole screw T" }, 
+              { content: "3.5 x 50", rule: "hole screw T" }, 
+              { content: "3.5 x 75", rule: "hole screw T" }, 
+
+              { content: "5 x <25", rule: "hole screw T" }, 
+              { content: "5 x 35", rule: "hole screw T" }, 
+              { content: "5 x 50", rule: "hole screw T" }, 
+              { content: "5 x 75", rule: "hole screw T" }, 
+
+              { content: "8 x <25", rule: "hole screw T" }, 
+              { content: "8 x 35", rule: "hole screw T" }, 
+              { content: "8 x 50", rule: "hole screw T" }, 
+              { content: "8 x 75", rule: "hole screw T" }, 
             ]
           },
         ],
         [
           {
             id: "bc", in: [
-              { content: "m4", rule: "xx" },
+              { content: "flat", rule: "super rule" },
             ]
           },
         ],
-      ]
+      ],
+      searchResult: [],
     }),
 
     getters: {
@@ -94,15 +180,9 @@ export const useCounterStoreTools = defineStore(
         this.boxes = newList
       },
 
-      addHighlight(text: string) {
-        this.boxes.forEach((row) => {
-          row.forEach((item) => {
-            item.in.forEach((itemIn) => {
-              if (itemIn.rule === text) {
-                itemIn.highlight = true
-              }
-            })
-          })
+      addHighlight() {
+        this.searchResult.forEach((item) => {
+          this.boxes[item.id[0]][item.id[1]].in[item.id[2]].highlight = true
         })
       },
       removeHighlight() {
@@ -115,6 +195,19 @@ export const useCounterStoreTools = defineStore(
         })
       },
 
+      searchableStructure() {
+        const temp = [] as Searchable[]
+        for (let i = 0; i < this.boxes.length; i++) {
+          for (let j = 0; j < this.boxes[i].length; j++) {
+            for (let k = 0; k < this.boxes[i][j].in.length; k++) {
+              const { content, rule } = this.boxes[i][j].in[k]
+              temp.push({ id: [i, j, k], content, rule })
+            }
+          }
+        }
+
+        return temp
+      },
       runApplyRules(searchValue: string) {
         this.boxes.forEach((row) => {
           row.forEach((item) => {
@@ -130,48 +223,32 @@ export const useCounterStoreTools = defineStore(
           })
         })
       },
+
+
       runSearch(searchValue: string) {
         // fuz test
+        const flat = this.searchableStructure()
 
-        const flat = JSON.parse(JSON.stringify(this.boxes.flat()))
         const results = new Fuse(flat, {
           threshold: 0.4,
           minMatchCharLength: 2,
-          keys: ['in.content', 'in.rules', 'id'],
+          keys: ['content', 'rule'],
         })
           .search(searchValue)
           .map((x) => {
             return x.item
-          }) as boxRow[];
+          });
 
-          const highlightBox = results.reduce((acc: any, item: any) => {
-            return [...acc, item.id]
-          },[])
-
-          const highlightDrawer = new Fuse(results[0].in, {
-            threshold: 0.4,
-            minMatchCharLength: 2,
-            keys: ['content', 'rule'],
-          })
-          .search(searchValue)
-          .map((x) => {
-            return x.item
-          }).reduce((acc: any, item: any) => {
-            return [...acc, item.content]
-          },[])
-
-        console.log(highlightBox, highlightDrawer);
-
+        this.searchResult = results
 
         // what rule apply
         this.runApplyRules(searchValue)
         // highlight box
         this.removeHighlight()
-        this.addHighlight(searchValue)
+        this.addHighlight()
         // show sidebar text
 
         // after search
-        console.log("xa", searchValue)
       },
     },
   })
