@@ -1,4 +1,5 @@
 import Fuse from 'fuse.js';
+import boxData from './mockData/boxes.json';
 
 // 0 | Store types
 export type boxRow = { id: string, highlight?: boolean, in: { content: string, rule?: string, highlight?: boolean }[] }
@@ -26,121 +27,7 @@ export const useCounterStoreTools = defineStore(
   {
     id: "toolsData",
     state: (): StoreTools => ({
-      boxes: [
-        [
-          {
-            id: "surubu plastic", in: [
-              { content: "cepuri", rule: "<5 3 4 5" }, 
-              { content: "cepuri", rule: "6" }, 
-              { content: "cepuri", rule: "8" }, 
-              { content: "cepuri", rule: '10' },
-
-              { content: "suruburi plastic", rule: "4" }, 
-              { content: "suruburi plastic", rule: "6" }, 
-              { content: "suruburi plastic", rule: "8" }, 
-              { content: "suruburi plastic", rule: '' },
-
-              { content: "bits", rule: "pz2" }, 
-              { content: "m4", rule: "xx" }, 
-              { content: "m4", rule: "xx" }, 
-              { content: "m4", rule: 'm4' },
-            ]
-          },
-          {
-            id: "middle empty", in: [
-              { content: "", rule: "" }, 
-              { content: "", rule: "" },
-              { content: "", rule: "" },
-              { content: "", rule: "" },
-
-              { content: "", rule: "" }, 
-              { content: "", rule: "" },
-              { content: "", rule: "" },
-              { content: "", rule: "" },
-
-              { content: "", rule: "" }, 
-              { content: "", rule: "" },
-              { content: "", rule: "" },
-              { content: "", rule: "" },
-            ]
-          },
-          {
-            id: "middle empty", in: [
-              { content: "", rule: "" }, 
-              { content: "L braket", rule: "" },
-
-              { content: "Bicicleta", rule: "" }, 
-              { content: "Q Brick separatoare", rule: "" },
-            ]
-          },
-        ],
-        [
-          {
-            id: "hole screw T", in: [
-              { content: "3.5 x <25", rule: "hole screw T" }, 
-              { content: "3.5 x 35", rule: "hole screw T" }, 
-              { content: "3.5 x 50", rule: "hole screw T" }, 
-              { content: "3.5 x 75", rule: "hole screw T" }, 
-
-              { content: "5 x <25", rule: "hole screw T" }, 
-              { content: "5 x 35", rule: "hole screw T" }, 
-              { content: "5 x 50", rule: "hole screw T" }, 
-              { content: "5 x 75", rule: "hole screw T" }, 
-
-              { content: "8 x <25", rule: "hole screw T" }, 
-              { content: "8 x 35", rule: "hole screw T" }, 
-              { content: "8 x 50", rule: "hole screw T" }, 
-              { content: "8 x 75", rule: "hole screw T" }, 
-            ]
-          }, 
-        ],
-        [
-          {
-            id: "hole screw V", in: [
-              { content: "3.5 x <25", rule: "hole screw v" }, 
-              { content: "3.5 x 35", rule: "hole screw V" }, 
-              { content: "3.5 x 50", rule: "hole screw V" }, 
-              { content: "3.5 x 75", rule: "hole screw v" }, 
-
-              { content: "5 x <25", rule: "hole screw V" }, 
-              { content: "5 x 35", rule: "hole screw V" }, 
-              { content: "5 x 50", rule: "hole screw V" }, 
-              { content: "5 x 75", rule: "hole screw V" }, 
-
-              { content: "8 x <25", rule: "hole screw V" }, 
-              { content: "8 x 35", rule: "hole screw V" }, 
-              { content: "8 x 50", rule: "hole screw V" }, 
-              { content: "8 x 75", rule: "hole screw v" }, 
-            ]
-          },
-
-          {
-            id: "dibluri", in: [
-              { content: "<6", rule: "Dibluri" }, 
-              { content: "3.5 x 35", rule: "hole screw T" }, 
-              { content: "3.5 x 50", rule: "hole screw T" }, 
-              { content: "3.5 x 75", rule: "hole screw T" }, 
-
-              { content: "5 x <25", rule: "hole screw T" }, 
-              { content: "5 x 35", rule: "hole screw T" }, 
-              { content: "5 x 50", rule: "hole screw T" }, 
-              { content: "5 x 75", rule: "hole screw T" }, 
-
-              { content: "8 x <25", rule: "hole screw T" }, 
-              { content: "8 x 35", rule: "hole screw T" }, 
-              { content: "8 x 50", rule: "hole screw T" }, 
-              { content: "8 x 75", rule: "hole screw T" }, 
-            ]
-          },
-        ],
-        [
-          {
-            id: "bc", in: [
-              { content: "flat", rule: "super rule" },
-            ]
-          },
-        ],
-      ],
+      boxes: boxData,
       searchResult: [],
     }),
 
