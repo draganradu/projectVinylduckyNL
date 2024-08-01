@@ -4,11 +4,11 @@
       "id": "surubu plastic",
       "in": [
         {
-          "content": "cepuri",
-          "rule": "<5 3 4 5"
+          "content": ["cepuri", "<5"],
+          "rule": "3 4 5"
         },
         {
-          "content": "cepuri",
+          "content": "cepuri 6",
           "rule": "6"
         },
         {

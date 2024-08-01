@@ -95,22 +95,6 @@ export const useCounterStoreTools = defineStore(
 
         return temp
       },
-      runApplyRules(searchValue: string) {
-        this.boxes.forEach((row) => {
-          row.forEach((item) => {
-            item.in.forEach((itemIn) => {
-              if (itemIn.rule && logicRules[itemIn.rule]) {
-                // logic rule
-                // console.log("we have a logic rule")
-              } else {
-                // string rule
-                // console.log("we have a string rule")
-              }
-            })
-          })
-        })
-      },
-
 
       runSearch(searchValue: string) {
         // fuz test
@@ -128,14 +112,9 @@ export const useCounterStoreTools = defineStore(
 
         this.searchResult = results
 
-        // what rule apply
-        this.runApplyRules(searchValue)
         // highlight box
         this.removeHighlight()
         this.addHighlight()
-        // show sidebar text
-
-        // after search
       },
     },
   })

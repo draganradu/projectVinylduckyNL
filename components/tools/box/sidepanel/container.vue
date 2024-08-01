@@ -14,26 +14,53 @@ const toggleCollapse = () => {
 </script>
 
 <template>
-  <div :class="['card', collapse ? 'collapsed' : '']">
-    <div class="card-body">
-      <h5 class="card-title" @click="toggleCollapse">
-        <BootstrapIcon name="arrow-bar-left" v-if="collapse" />
-        <BootstrapIcon name="arrow-bar-right" v-else />
-        <span class="co">Sidepanel</span>
-      </h5>
-      <h6 class="card-subtitle mb-2 text-body-secondary co">Card subtitle</h6>
+  <div id="sidepanel" :class="[collapse ? 'collapsed' : '']">
+    <div :class="['card']">
+      <div class="card-body">
+        <h5 class="card-title" @click="toggleCollapse">
+          <BootstrapIcon name="arrow-bar-left" v-if="collapse" />
+          <BootstrapIcon name="arrow-bar-right" v-else />
+          <span class="co">Sidepanel</span>
+        </h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary co">Card subtitle</h6>
 
-      <ToolsBoxSidepanelInput />
-      <ToolsBoxSidepanelSearchResults />
+        <ToolsBoxSidepanelInput />
+        <ToolsBoxSidepanelSearchResults />
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.card {
-  max-width: 400px;
-  width: 400px;
+$collapsed: 400px;
+$unCollapsed: 50px;
+
+
+#sidepanel {
+  .card {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom:0;
+  }
 }
+
+#sidepanel:not(.collapsed) {
+  width: $collapsed;
+
+  .card-body {
+    width: $collapsed;
+  }
+}
+
+#sidepanel.collapsed {
+  width: $unCollapsed;
+
+  .card-body {
+    width: $unCollapsed;
+  }
+}
+
 
 .collapsed {
   .co {

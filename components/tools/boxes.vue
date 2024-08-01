@@ -16,7 +16,7 @@ const props = defineProps({
   <div :class="['box']" :style="`height: ${templateSize}px;`">
     <div :class="['box-structure', `box-size-${props.box?.in.length}`]">
       <div v-for="i in box?.in" :key="i" :class="['drawers', i?.highlight ? 'highlight' : ''	]">
-        <h3>{{ i.content }}</h3>
+        <ToolsBoxTitle :title="i.content" :style="true" />
       </div>
     </div>
     <ToolsBoxRemoveBox class="remove" />
@@ -24,10 +24,6 @@ const props = defineProps({
 </template>
 
 <style scoped lang="scss">
-.demo {
-  // display: none;
-}
-
 .box {
   border: 1px solid black;
   padding: 10px;
@@ -58,11 +54,6 @@ const props = defineProps({
   border: 1px solid black;
   min-width: 10px;
   min-height: 10px;
-
-  h3 {
-    font-size: 12px;
-    text-align: center;
-  }
 }
 
 .box-structure {
