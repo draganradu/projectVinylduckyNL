@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     'bootstrap/dist/css/bootstrap.min.css',
     '@/style/normalization.scss',
     '@/style/global.scss',
+    '@/style/cv.scss',
   ],
   modules: ['nuxt-bootstrap-icons', '@nuxtjs/i18n', '@vueuse/nuxt', ['@pinia/nuxt', {
     autoImports: ['defineStore', 'acceptHMRUpdate'],

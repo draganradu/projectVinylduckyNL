@@ -1,9 +1,46 @@
 <!-- 0.1.0 -->
+<script lang="ts" setup>
+// ------------- Data
+const data = {
+  tools: "en/tools/",
+  CV: "en/cv/scrum",
+  CVn: "en/cv/",
+  CVf: "en/cv/frontend",
+}
+</script>
+
 <template>
-  <hr />
-  {{ $t("projects") }}: <NuxtLink to="en/tools/">{{ $t("tools") }}</NuxtLink>
-  <hr />
   <div class="copyright">
-    {{ $t("copyright_footer") }}
+    <hr />
+    {{ $t("projects") }}:
+    <div class="copyright-links">
+      <span v-for="(k, i) in data" :key="i">
+        <NuxtLink :to="k">{{ $t(i) }}</NuxtLink>
+        <span class="divider">|</span>
+
+      </span>
+    </div>
+
+    <hr />
+    <div>
+      {{ $t("copyright_footer") }}
+    </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+.divider {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.copyright-links {
+  display: inline;
+  
+  span:last-child {
+    .divider {
+      display: none;
+    }
+  }
+}
+</style>

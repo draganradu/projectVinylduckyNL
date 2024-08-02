@@ -1,0 +1,28 @@
+// variables
+$background-color: #f5f5f5;
+$cv-color: #ffffff;
+
+#id {
+
+  // general
+  .background {
+    background-color: $background-color;
+    min-height: 100vh;
+  }
+}
+
+#id {
+
+  // mainBody
+  .cv-color {
+    background-color: $cv-color;
+  }
+}
+
+#id {
+
+  // sidePanel
+  .sidebar-color {
+    background-color: #42A8C0;
+  }
+}
