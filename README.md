@@ -59,9 +59,11 @@ graph TB
 ```
 
 ## Structure
+<!-- 0.1.0 -->
 // ------------- Init and Import
+// ------------- Hooks 
+// ------------- Props
 // ------------- Data
-// ------------- Hooks / methods
 // ------------- Logic
 // ------------- SEO
 

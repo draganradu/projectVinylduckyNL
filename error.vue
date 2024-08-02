@@ -1,7 +1,7 @@
 <template>
     <div class="error-container">
         <div class="inner">
-            <router-link to="/" class="back"><BootstrapIcon name="backspace-fill" /></router-link>
+            <NuxtLink to="/" class="back"><BootstrapIcon name="backspace-fill" /></NuxtLink>
             <div class="title">
                 <span>Error</span>
                 <h1>404</h1>

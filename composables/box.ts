@@ -1,0 +1,1 @@
+export const boxSize = [1, 2, 4, 9, 12];

@@ -1,6 +1,32 @@
+// 0 | Store types
+export type page = {
+  title: string,
+  subtitle: string,
+  content: string,
+  url?: string,
+  color: string,
+  text_color?: string
+}
+
+export interface pageStore {
+  [key: string]: page
+}
+
+export type mainStore = {
+  version: string,
+  modes: {
+    modalOpen: boolean,
+    maintenance: boolean,
+    error: boolean,
+  },
+  pages: pageStore,
+  socialMedia: { [key: string]: string }
+}
+
+// 1 | Store Data
 export const useCounterStore = defineStore({
   id: 'appData',
-  state: () => {
+  state: (): mainStore => {
     return {
       version: "0.0.1",
       modes: {
@@ -10,52 +36,60 @@ export const useCounterStore = defineStore({
       },
       pages: {
         scrum: {
-          "title": "Scrum Master",
-          "subtitle": "Safe 6.1 Agile Team coach",
-          "content": "adsasdas",
-          "url": "scrum",
-          "color": "2"
+          title: "Scrum Master",
+          subtitle: "Safe 6.1 Agile Team coach",
+          content: "scrum_body_text",
+          url: "scrum",
+          color: "2"
         },
         vinylShop: {
-          "title": "Vinyl Shop",
-          "subtitle": "Signs and Stickers",
-          "content": "adsasdas",
-          "color": "3"
+          title: "Vinyl Shop",
+          subtitle: "Signs and Stickers",
+          content: "vinyl_body_text",
+          color: "3",
+          text_color: "2"
         },
         cutOnDemand: {
-          "title": "Vinyl Cut",
-          "subtitle": "Signs and Stickers",
-          "content": "Cut on demand",
-          "color": "4",
-          "url": "vinylShop/ServicesCutOnDemand",
+          title: "Vinyl Cut",
+          subtitle: "Signs and Stickers",
+          content: "cut_body_text",
+          color: "4",
+          url: "vinylShop/ServicesCutOnDemand",
         },
         largeFormatPrint: {
-          "title": "Large Format Print",
-          "subtitle": "Large format Print on demand",
-          "content": "adsasdas",
-          "color": "5",
-          "url": "vinylShop/ServicesPrintOnDemand",
+          title: "Large Format Print",
+          subtitle: "Large format Print on demand",
+          content: "print_body_text",
+          color: "5",
+          url: "vinylShop/ServicesPrintOnDemand",
+          "text_color": "1"
         },
       },
-      socialMedia :{
+      socialMedia: {
         "instagram": "https://www.instagram.com/vinylduckynl/",
         "git": "https://github.com/draganradu/projectVinylduckyNL",
+        "behance": "https://www.behance.net/vinylducky",
+        "twitter": "https://x.com/vinylduckynl",
+        "youtube": "https://www.youtube.com/channel/UCLxGVQzx9ZIp2JsIGmRQVtA",
       }
     }
   },
-  getters: {
-    getUrl: (state) => {
-      return (url: string) => {
 
-        // @ts-ignore
+  getters: {
+    getUrl: (state: mainStore) => {
+      return (url: string) => {
         return state.pages[url]['url'] || url
       }
     },
   },
+
   actions: {
-    toggleModal() {
-      this.modes.modalOpen = !this.modes.modalOpen
+    toggleModal(value?: boolean) {
+      if (value !== undefined) {
+        this.modes.modalOpen = value
+      } else {
+        this.modes.modalOpen = !this.modes.modalOpen
+      }
     }
   }
 })
-

@@ -1,5 +1,7 @@
+<!-- 0.1.0 -->
 <template>
-  <svg version="1.1" id="wave-line" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 450 40" xml:space="preserve">
+  <svg version="1.1" id="wave-line" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 450 40" xml:space="preserve">
     <g id="XMLID_1_">
       <g id="XMLID_3_">
         <path class="white" d="M449.9,26.2c-0.4,0-0.7-0.1-1-0.1c-1.4-0.1-2.7-0.3-4.1-0.7c-3-0.8-5.5-2.5-7.7-4.6
@@ -41,12 +43,19 @@
 <style scoped lang="scss">
 #wave-line {
   position: absolute;
-  bottom: 0px;
+  bottom: -2px;
   left: 0;
   right: 0;
-  width: 100%;
   z-index: 1;
+  width: 100%;
 }
+
+@media screen and (max-width: 992px) {
+  #wave-line {
+    display: none;
+  }
+}
+
 
 .white {
   fill: white;
