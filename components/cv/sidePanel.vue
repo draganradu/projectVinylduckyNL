@@ -4,7 +4,11 @@
 </script>
 
 <template>
-  <div id="sidebar" class="col-4 sidebar-color">
-    B
+  <div id="sidebar" class="col-4 sidebar-color text-white">
+    <CvSideBarImage />
+    <CvSideBarContact />
+    <CvSideBarEducation />
+    <CvSideBarLanguage />
+    <CvSideBarInterests />
   </div>
 </template>

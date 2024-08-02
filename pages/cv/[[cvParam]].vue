@@ -19,13 +19,14 @@ definePageMeta({
 </script>
 
 <template>
-  <div id="cv" class="background pt-5">
-    <div class="container ">
-      <div class="row shadow-sm cv-color">
-        <CvMainBody />
-        <CvSidePanel />
+  <div id="cv">
+    <div class="background pt-5">
+      <div class="container ">
+        <div class="row shadow-sm cv-color">
+          <CvMainBody />
+          <CvSidePanel />
+        </div>
       </div>
     </div>
   </div>
-  super {{ route.params.cvParam }}
 </template>
