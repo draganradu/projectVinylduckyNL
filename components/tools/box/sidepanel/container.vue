@@ -26,6 +26,8 @@ const toggleCollapse = () => {
 
         <ToolsBoxSidepanelInput />
         <ToolsBoxSidepanelSearchResults />
+
+        <ToolsBoxSidepanelSelectedbox />
       </div>
     </div>
   </div>

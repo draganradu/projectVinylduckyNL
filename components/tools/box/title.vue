@@ -3,12 +3,22 @@
 // ------------- Props
 const props = defineProps(
   ["title", "style"]);
-const is = {
-  empty: typeof props.title === "string" && props.title.length === 0,
-  string: typeof props.title === "string" && props.title.length > 0,
-  array: Array.isArray(props.title)
-}
 
+const logicIS = () => {
+  return {
+    empty: typeof props.title === "string" && props.title.length === 0,
+    string: typeof props.title === "string" && props.title.length > 0,
+    array: Array.isArray(props.title)
+  }
+}
+const is = ref(logicIS())
+
+// ------------- Logic
+watch(() => props.title, (newQuestion, oldQuestion) => {
+  if (newQuestion !== oldQuestion[0]) {
+    is.value = logicIS()
+  }
+});
 
 </script>
 

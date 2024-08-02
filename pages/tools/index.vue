@@ -23,7 +23,7 @@ appStore.toggleModal(false);
   <div class="tools-page">
     <div class="tools-box-section" v-if="parseInt(useWindowSize().width.value as any)">
       <ToolsRowbox v-for="(k, i) in boxes" :key="i" :template-size="longestRow" :row="i">
-        <ToolsBoxes v-for="(k2, i2) in k" :key="i2" :box="k2" :template-size="calculateHeight(longestRow)">
+        <ToolsBoxes v-for="(k2, i2) in k" :key="i2" :box="k2" :template-size="calculateHeight(longestRow)" :boxId="[i,i2]">
         </ToolsBoxes>
       </ToolsRowbox>
       <ToolsBoxAddRow row="3" />

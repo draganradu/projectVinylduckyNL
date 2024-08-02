@@ -6,29 +6,27 @@ export type boxRow = { id: string, highlight?: boolean, in: { content: string, r
 
 export type StoreTools = {
   boxes: boxRow[][],
-  searchResult: Searchable[] | []
+  searchResult: Searchable[] | [],
+  selectedBox: { 
+    showSelected: boolean, 
+    id: [number, number] 
+  }
 }
 
 export type Searchable = { id: [number, number, number], content: string, rule?: string }
 
-type ruleOperator = (data: string) => boolean
-const superA: ruleOperator = (data: string) => {
-  return data.length === 6
-}
-
-const logicRules: { [key: string]: ruleOperator } = {
-  m4: (data: string) => {
-    return data.length === 6
-  },
-}
 
 // 1 | Store Data
 export const useCounterStoreTools = defineStore(
   {
     id: "toolsData",
     state: (): StoreTools => ({
-      boxes: boxData,
+      boxes: boxData as boxRow[][],
       searchResult: [],
+      selectedBox: {
+        showSelected: false,
+        id: [0, 0],
+      },
     }),
 
     getters: {
@@ -97,7 +95,6 @@ export const useCounterStoreTools = defineStore(
       },
 
       runSearch(searchValue: string) {
-        // fuz test
         const flat = this.searchableStructure()
 
         const results = new Fuse(flat, {
@@ -116,5 +113,14 @@ export const useCounterStoreTools = defineStore(
         this.removeHighlight()
         this.addHighlight()
       },
+
+      selectABox(id: [number, number]) {
+        this.selectedBox.id = id
+        this.selectedBox.showSelected = true
+      },
+      deSelectABox() {
+        this.selectedBox.showSelected = false
+      },
+
     },
   })

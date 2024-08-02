@@ -1,4 +1,3 @@
-<!-- 0.1.0 -->
 <script setup lang="ts">
 // ------------- Hooks
 const toolStore = useCounterStoreTools();
