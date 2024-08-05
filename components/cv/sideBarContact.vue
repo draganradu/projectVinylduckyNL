@@ -1,11 +1,33 @@
 <script lang="ts" setup>
+const store = cvStore()
 
+const icons = (key: string) => {
+  // direct key
+  const icons: string[] = ['git']
+  if (icons.includes(key)) {
+    return key
+  }
+
+  // replace key
+  const replaceKeys: { [key: string]: string } = {
+    'mail': 'envelope-heart-fill',
+    'phone': 'telephone-fill',
+  }
+  if(replaceKeys[key]) {
+    return replaceKeys[key]
+  }
+
+  // fallback
+  return "envelope-heart-fill"
+}
 </script>
 
 <template>
-  <div>
-    <div>email</div>
-    <div>phone</div>
-    <div>link</div>
-  </div>
+  <section id="sidebar-contact">
+    <h3>Contact</h3>
+    <div v-for="(d, k ) in store.personalInfo.contact" :key="k">
+      <BootstrapIcon :name="icons(k as string)" class="me-2" />
+      <span>{{ d }}</span>
+    </div>
+  </section>
 </template>

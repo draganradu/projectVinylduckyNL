@@ -1,0 +1,3 @@
+<template>
+    Big Box
+</template>

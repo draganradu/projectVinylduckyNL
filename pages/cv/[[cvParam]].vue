@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // ------------- Init and Import
 const route = useRoute()
+const appStore = cvStore();
 
 // ------------- Logic
 definePageMeta({
@@ -16,11 +17,16 @@ definePageMeta({
     },
   ],
 });
+
+onBeforeMount(() => {
+  appStore.currentQuery = route.params.cvParam as string
+})
 </script>
 
 <template>
   <div id="cv">
     <div class="background pt-5">
+      <CvHeader />
       <div class="container ">
         <div class="row shadow-sm cv-color">
           <CvMainBody />

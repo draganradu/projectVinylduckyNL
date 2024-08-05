@@ -3,7 +3,6 @@ $background-color: #f5f5f5;
 $cv-color: #ffffff;
 
 #cv {
-
   // general
   .background {
     background-color: $background-color;
@@ -19,8 +18,20 @@ $cv-color: #ffffff;
   }
 }
 
-#cv {
+@media print {
+  // print only
+  #cv {
+    padding-top: 0;
+    .container {
+      max-width: 100%;
+    }
+    .cv-color {
+      box-shadow:none!important;
+    }
+  }
+}
 
+#cv {
   // mainBody
   .cv-color {
     background-color: $cv-color;
@@ -28,13 +39,12 @@ $cv-color: #ffffff;
 }
 
 #cv {
-  
   // sidePanel
-
   #sidebar {
     padding: 0;
   }
   .sidebar-color {
+    -webkit-print-color-adjust: exact; 
     background-color: #42A8C0;
   }
 
@@ -42,7 +52,8 @@ $cv-color: #ffffff;
     background-color: rgba(0, 0, 0, 0.2);
 
     img {
-      width: 250px;
+      width: 150px;
+      border: 2px solid rgba(0, 0, 0, 0.1);
     }
 
     h1 {

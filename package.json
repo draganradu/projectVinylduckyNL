@@ -19,10 +19,12 @@
     "fuse.js": "^7.0.0",
     "nuxt": "^3.11.2",
     "pinia": "^2.1.7",
+    "underscore": "^1.13.7",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@types/underscore": "^1.11.15",
     "bootstrap": "^5.3.3",
     "nuxt-bootstrap-icons": "^2.0.0",
     "sass": "^1.77.0"

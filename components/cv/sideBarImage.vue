@@ -6,6 +6,6 @@ const store = cvStore()
   <section id="sidebar-image" class="text-center">
     <img :src="store.personalInfo.image" class="rounded-circle" />
     <h1>{{ store.personalInfo.name }}</h1>
-    <h2>{{ store.personalInfo.jobTitle[0] }}</h2>
+    <h2>{{ store.getBaseInfo(["personalInfo","jobTitle"]) }}</h2>
   </section>
 </template>
