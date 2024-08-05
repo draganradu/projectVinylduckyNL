@@ -25,7 +25,7 @@ const icons = (key: string) => {
 <template>
   <section id="sidebar-contact">
     <h3>Contact</h3>
-    <div v-for="(d, k ) in store.personalInfo.contact" :key="k">
+    <div class="text-line" v-for="(d, k ) in store.personalInfo.contact" :key="k">
       <BootstrapIcon :name="icons(k as string)" class="me-2" />
       <span>{{ d }}</span>
     </div>
