@@ -18,7 +18,7 @@ const select = (k: number) => {
 </script>
 
 <template>
-  <div class="dropdown">
+  <div class="dropdown no-print">
     <span class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
       data-bs-toggle="dropdown" aria-expanded="false" @click="toggle">
       {{ tite }}

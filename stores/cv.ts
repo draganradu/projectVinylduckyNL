@@ -10,6 +10,7 @@ export type cvStore = {
     certifications: string[],
     language: { [key: string]: string },
   },
+  topSkills: { [key: string]: string[] },
   sections: {
     Summary: cvSections,
     Experience: cvSections,
@@ -18,6 +19,7 @@ export type cvStore = {
       in: string,
       where: string,
       when: [number, number],
+      verboseMin?: number,
     }[],
   },
   currentQuery: string,
@@ -61,11 +63,15 @@ export const cvStore = defineStore({
         },
         certifications: ["PSM", "SAFe 6.1"],
         language: {
-          english: "Fluent",
-          dutch: "Basic",
-          romanian: "Basic",
-          hungarian: "Basic",
+          english: "Full Professional",
+          dutch: "Elementary",
+          romanian: "Native or Bilingual",
+          hungarian: "Elementary",
         }
+      },
+      topSkills: {
+        frontend: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum", "UI/UX Design"],
+        scrum: ["Scrum Master", "Problem solving", "Development thinking", "Design thinking"]
       },
       sections: {
         "Summary": {
@@ -89,6 +95,7 @@ export const cvStore = defineStore({
             in: "Digital Design and Photography",
             where: "University of art Cluj-Napoca",
             when: [2007, 2010],
+            verboseMin: 1
           },
         ],
         "Experience": {
@@ -105,7 +112,7 @@ export const cvStore = defineStore({
           "wireFrame",
           "scrum",
         ],
-        level: 1
+        level: 0
       }
     }
   },
@@ -123,6 +130,13 @@ export const cvStore = defineStore({
         }
 
         return currentData
+      }
+    },
+    showVerbose(state: cvStore) {
+      return (level?: number) => {
+        if (level === undefined) { return true }
+        else if(state.verbose.level >= level ) { return true }
+        return false
       }
     }
   }

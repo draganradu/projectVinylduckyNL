@@ -24,6 +24,13 @@ $cv-color: #ffffff;
     .cv-color {
       box-shadow:none!important;
     }
+    .background {
+      padding-top: 0!important;
+    }
+  }
+
+  .no-print {
+    display: none! important;
   }
 }
 
@@ -96,7 +103,7 @@ $cv-color: #ffffff;
 #cv {
   // Education
   .line-education {
-    margin-top: 20px;
+    margin-top: 0px;
     h4, p {
       font-size: 14px;
     }
@@ -104,6 +111,17 @@ $cv-color: #ffffff;
       font-weight: 700;
     }
     & > * {
+      margin-bottom: 0;
+    }
+  }
+  .line-education + .line-education {
+    margin-top: 20px;
+  }
+}
+
+#cv {
+  #sidebar-language {
+    p {
       margin-bottom: 0;
     }
   }
