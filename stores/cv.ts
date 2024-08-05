@@ -11,6 +11,7 @@ export type cvStore = {
     language: { [key: string]: string },
   },
   topSkills: { [key: string]: string[] },
+  interests: { [key: string]: string[] },
   sections: {
     Summary: cvSections,
     Experience: cvSections,
@@ -72,6 +73,10 @@ export const cvStore = defineStore({
       topSkills: {
         frontend: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum", "UI/UX Design"],
         scrum: ["Scrum Master", "Problem solving", "Development thinking", "Design thinking"]
+      },
+      interests : {
+        frontend: ["Building Cargo Bikes", "Kayaking", "DIY", "traveling"],
+        scrum: ["Building Bikes", "Fixing things"]
       },
       sections: {
         "Summary": {

@@ -7,6 +7,7 @@
   <div id="sidebar" class="col-4 sidebar-color text-white">
     <CvSideBarImage />
     <CvSideBarContact />
+    <CvSideBarTopSkills />
     <CvSideBarEducation />
     <CvSideBarLanguage />
     <CvSideBarInterests />
