@@ -13,7 +13,12 @@ export type cvStore = {
   sections: {
     Summary: cvSections,
     Experience: cvSections,
-    Education: cvSections,
+    Education: {
+      what: string,
+      in: string,
+      where: string,
+      when: [number, number],
+    }[],
   },
   currentQuery: string,
   verbose: {
@@ -51,7 +56,8 @@ export const cvStore = defineStore({
           phone: "0648459980",
           linkedin: "www.linkedin.com/in/radu-aureldragan-0a894172",
           company: "vinylducky.nl",
-          git: "https://github.com/draganradu"
+          git: "https://github.com/draganradu",
+          npm: "https://www.npmjs.com/package/simple-color-converter"
         },
         certifications: ["PSM", "SAFe 6.1"],
         language: {
@@ -65,9 +71,26 @@ export const cvStore = defineStore({
         "Summary": {
 
         },
-        "Education": {
-
-        },
+        "Education": [
+          {
+            what: "MBA",
+            in: "Business Management and Engineering",
+            where: "Polytechnics University of Bucharest",
+            when: [2018, 2022],
+          },
+          {
+            what: "MA",
+            in: "Design and Multimedia",
+            where: "University of Art and Design Bucharest",
+            when: [2010, 2012],
+          },
+          {
+            what: "BA",
+            in: "Digital Design and Photography",
+            where: "University of art Cluj-Napoca",
+            when: [2007, 2010],
+          },
+        ],
         "Experience": {
 
         }

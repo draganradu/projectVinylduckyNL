@@ -3,15 +3,15 @@ const store = cvStore()
 
 const icons = (key: string) => {
   // direct key
-  const icons: string[] = ['git']
+  const icons: string[] = ['git', 'linkedin', 'mail', 'phone', ]
   if (icons.includes(key)) {
     return key
   }
 
   // replace key
   const replaceKeys: { [key: string]: string } = {
-    'mail': 'envelope-heart-fill',
-    'phone': 'telephone-fill',
+    'company': 'browser-chrome',
+    'npm': 'filetype-js',
   }
   if(replaceKeys[key]) {
     return replaceKeys[key]

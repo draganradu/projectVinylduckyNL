@@ -86,5 +86,25 @@ $cv-color: #ffffff;
       word-break: break-all;
       display: flex;
     }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+#cv {
+  // Education
+  .line-education {
+    margin-top: 20px;
+    h4, p {
+      font-size: 14px;
+    }
+    h4 {
+      font-weight: 700;
+    }
+    & > * {
+      margin-bottom: 0;
+    }
   }
 }

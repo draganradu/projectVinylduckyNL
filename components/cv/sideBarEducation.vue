@@ -1,11 +1,15 @@
 <script lang="ts" setup>
+const store = cvStore()
 
 </script>
 
 <template>
-  <div>
-    <div>Education</div>
-    <div>something</div>
-    <div>something</div>
-  </div>
+  <section id="sidebar-Education">
+    <h3>Education</h3>
+    <div class="line-education" v-for="(d, k ) in store.sections.Education" :key="k">
+      <h4>{{ d.what }} in {{ d.in }}</h4>
+      <p>{{ d.where }}</p>
+      <p>{{ d.when[0] }}-{{ d.when[1] }}</p>
+    </div>
+  </section>
 </template>
