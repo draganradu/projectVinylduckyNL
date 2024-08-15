@@ -1,3 +1,7 @@
 <template>
-    Default HS Json
+  <CvBodyHeadline />
+  <CvBodyCareerProfile />
+  <CvBodyExperience />
+  <CvBodyProjectsAndVol />
+  <CvBodySkills />
 </template>

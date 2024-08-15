@@ -127,13 +127,16 @@ export const cvStore = defineStore({
         const data = _.get(state, url)
         let currentData = ""
 
-        if (!_.has(data, state.currentQuery)) {
+        if (typeof data === "string") {
+          return data
+        }
+        
+        if (state.currentQuery && _.has(data, state.currentQuery)) {
           currentData = _.get(state, [...url, state.currentQuery]) as string
         } else {
           const keys = Object.keys(data as any)
           currentData = _.get(state, [...url, keys[0]]) as string
         }
-
         return currentData
       }
     },

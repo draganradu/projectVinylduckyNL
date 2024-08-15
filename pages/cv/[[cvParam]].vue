@@ -3,6 +3,9 @@
 const route = useRoute()
 const appStore = cvStore();
 
+onBeforeMount(() => {
+  appStore.currentQuery = route.params.cvParam as string
+})
 // ------------- Logic
 definePageMeta({
   middleware: [
@@ -18,13 +21,12 @@ definePageMeta({
   ],
 });
 
-onBeforeMount(() => {
-  appStore.currentQuery = route.params.cvParam as string
-})
+
+
 </script>
 
 <template>
-  <div id="cv">
+  <div id="cv" v-show="appStore.currentQuery">
     <div class="background pt-5">
       <CvHeader />
       <div class="container ">
@@ -35,4 +37,5 @@ onBeforeMount(() => {
       </div>
     </div>
   </div>
+  <div id="loading">Loading ...</div>
 </template>
