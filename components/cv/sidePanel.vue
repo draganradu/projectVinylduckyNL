@@ -1,6 +1,8 @@
 <script setup lang="ts">
 // ------------- Init and Import
-
+const store = cvStore()
+const { buildQrData } = storeToRefs(store)
+// ------------- Logic
 </script>
 
 <template>
@@ -11,6 +13,6 @@
       <CvSideBarEducation />
       <CvSideBarLanguage />
       <CvSideBarInterests />
-      <VdQr text="time:12-12-12|for:test|verbose:6|id:1231231|check:1234" />
+      <VdQr :text="buildQrData" />
     </div>
 </template>

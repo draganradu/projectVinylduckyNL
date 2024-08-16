@@ -27,7 +27,10 @@ export type cvStore = {
   verbose: {
     data: string[],
     level: number,
-  }
+  },
+  inputData: {
+    [key: string]: string,
+  },
 }
 
 type cvStrings = {
@@ -74,7 +77,7 @@ export const cvStore = defineStore({
         frontend: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum", "UI/UX Design"],
         scrum: ["Scrum Master", "Problem solving", "Development thinking", "Design thinking"]
       },
-      interests : {
+      interests: {
         frontend: ["Building Cargo Bikes", "Kayaking", "DIY", "traveling"],
         scrum: ["Building Bikes", "Fixing things"]
       },
@@ -118,6 +121,11 @@ export const cvStore = defineStore({
           "scrum",
         ],
         level: 0
+      },
+      inputData: {
+        dbID: "1234",
+        companyName: "company",
+        applicationLink: "link",
       }
     }
   },
@@ -130,7 +138,7 @@ export const cvStore = defineStore({
         if (typeof data === "string") {
           return data
         }
-        
+
         if (state.currentQuery && _.has(data, state.currentQuery)) {
           currentData = _.get(state, [...url, state.currentQuery]) as string
         } else {
@@ -140,10 +148,26 @@ export const cvStore = defineStore({
         return currentData
       }
     },
+    time(): string {
+      const date = new Date();
+      return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+    },
+    checkDigit(): string {
+      return "1123"
+    },
+    buildQrData(): string {
+      console.log(this.inputData)
+      return encodeURIComponent(JSON.stringify({
+        ...this.inputData,
+        verbose: this.verbose.level,
+        time: this.time,
+        checkDigit: this.checkDigit,
+      }))
+    },
     showVerbose(state: cvStore) {
       return (level?: number) => {
         if (level === undefined) { return true }
-        else if(state.verbose.level >= level ) { return true }
+        else if (state.verbose.level >= level) { return true }
         return false
       }
     }

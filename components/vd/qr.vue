@@ -5,24 +5,44 @@ const props = defineProps({
   color: { type: String, default: "66-168-192" },
 });
 
-const logic = {
-  apiUrl: "https://api.qrserver.com/v1/create-qr-code/",
-  data: {
-    data: props.text,
-    format: "svg",
-    color: props.color
-  },
+// ------------- Logic
+
+class qrLogic {
+  
+  private apiUrl: string;
+  private data: { data: string, format: string, color: string };
+
+  constructor(props: { text: string, color: string }) {
+    this.apiUrl = "https://api.qrserver.com/v1/create-qr-code/"
+    this.data = {
+      data: props.text,
+      format: "svg",
+      color: props.color
+    }
+  }
   buildUrl() {
     const searchParam = Object.keys(this.data).reduce((acc: string[], key: string) => {
       return [...acc, `${key}=${this.data[key]}`]
     }, [])
     return this.apiUrl + "?" + searchParam.join("&");
   }
+
+  update() {
+    this.data = {
+      data: props.text,
+      format: "svg",
+      color: props.color
+    }
+  }
 }
 
-// https://goqr.me/api/doc/create-qr-code/
+const logic = new qrLogic(props)
 
-//data=${text}&format=svg&color=${color}
+watch(() => props.text, (newQuestion, oldQuestion) => {
+  logic.update()
+})
+
+// https://goqr.me/api/doc/create-qr-code/
 
 </script>
 
