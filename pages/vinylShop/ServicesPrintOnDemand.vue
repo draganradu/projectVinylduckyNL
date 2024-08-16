@@ -1,3 +1,21 @@
+<script setup lang="ts">
+// ------------- init
+const appStore = useCounterStore();
+
+// ------------- Data
+const page = appStore.pages["largeFormatPrint"];
+
+// ------------- SEO
+useSeoMeta(
+  seoService(
+    {
+      title: page.title + " - vinylducky.nl",
+      description: "We provide a print-on-demand service up to AECH E size. We can do many custom things you might want."
+    }
+  )
+);
+</script>
+
 <template>
   <NuxtLayout name="page" :color="page.color || 2" :text="page.text_color || 1">
     <template #title>{{ page.title }}</template>
@@ -12,18 +30,6 @@
     </div>
   </NuxtLayout>
 </template>
-
-<script setup lang="ts">
-// ------------- init
-const appStore = useCounterStore();
-
-// ------------- Data
-const page = appStore.pages["largeFormatPrint"];
-
-useHead({
-  title: "Vinyl Shop",
-});
-</script>
 
 <style lang="scss" scoped>
 .form-vinyl-shop {

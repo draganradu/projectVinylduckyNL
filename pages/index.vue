@@ -11,12 +11,14 @@ const { pages } = appStore;
 const getUrl = appStore.getUrl
 
 // ------------- SEO
-// TODO: ECBGI-118
-useSeoMeta({
-  ...seoDefaultStructure,
-  title: 'Vinyl Ducky - Signs and Stickers',
-  ogTitle: 'Vinyl Ducky - Signs and Stickers',
-})
+useSeoMeta(
+  seoService(
+    {
+      title: "Vinyl Ducky - Signs and Stickers",
+      description: "We are currently working on a new project so our usual response time is no longer as prompt as it used to be. As usual, we will respond with a spring in our step and a smile in our hearts, just not as prompt. We appreciate your patience. If you need to contact us you email us at yellow@vinylducky.nl or by phone at 0648459980 . We are happy to have a chat."
+    }
+  )
+)
 </script>
 
 <template>

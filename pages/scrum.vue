@@ -6,11 +6,6 @@ const localPath = useLocalePath()
 // ------------- Data
 const page = appStore.pages["scrum"];
 
-// ------------- SEO
-useHead({
-  title: page.title + " - vinylducky.nl",
-});
-
 const data = ref([
   {
     q: "What is up with the stickers",
@@ -28,6 +23,16 @@ const data = ref([
     show: false,
   },
 ]);
+
+// ------------- SEO
+useSeoMeta(
+  seoService(
+    {
+      title: page.title + " - vinylducky.nl",
+      description: "I am a Scrum Master with over 5 years of experience, holding PSM and SAFe 6.1 certifications. With a solid background in software development spanning more than 10 years, I transitioned into the Scrum Master role after earning my Master's in Business from the Polytechnic University of Bucharest. Colleagues often describe me as a builder of innovative digital solutions, an effective organizer, and someone who can develop MVPs, learn from them, and create plans for scaling. I understand the importance of delivering in increments and testing features with real users."
+    }
+  )
+);
 </script>
 
 <template>

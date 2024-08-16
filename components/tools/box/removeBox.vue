@@ -4,7 +4,6 @@ const toolStore = useCounterStoreTools();
 
 // ------------- Logic
 const removeBox = () => {
-  console.log('remove');
   toolStore.removeBox();
 }
 </script>

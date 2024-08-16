@@ -1,8 +1,13 @@
 <script setup lang="ts">
-useHead({
-  title: "large Format print",
-})
-
+// ------------- SEO
+useSeoMeta(
+  seoService(
+    {
+      title: "Contact - vinylducky.nl",
+      description: "We started the vinyl shop to respond to the needs of one of our clients who needed to make compelling demo events. But they were building a physical product, and that came with a set of challenges because the iteration did not look like professional products, and there were no lettering descriptions, etc. So we bought all the equipment and started cutting vinyl for different companies."
+    }
+  )
+);
 </script>
 
 <template>
