@@ -1,3 +1,15 @@
+<script lang="ts" setup>
+const store = cvStore()
+
+const buildPosition = (d: string | string[]) => {
+  if(d instanceof Array) {
+    return d.join(" / ")
+  }
+  return d
+}
+
+</script>
+
 <template>
   <section>
     <div>
@@ -6,8 +18,30 @@
         Experience
       </h2>
     </div>
-      <p>
-        Summarise your career here lorem ipsum dolor sit amet, consectetuer adipiscing elit. You can download this free resume/CV template here. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.
-      </p>
+    <div class="ex-line" v-for="(d, k ) in store.getBaseInfo(['sections','Experience'])" :key="k">
+      <h5>{{ buildPosition(d.position) }}</h5>
+      <h6>{{ d.company }} | {{ d.type }}</h6>
+      <p>{{ d.when }}</p>
+      <p>{{ d.description[store.verbose.level] }}</p>
+      <p>Skills: {{ d.skills.join(", ") }}</p>
+    </div>
   </section>
 </template>
+
+<style lang="scss" scoped>
+.ex-line {
+  h5, h6 {
+    font-size: 1em;
+  }
+
+  h6 {
+    font-weight: 400;
+  }
+
+  & + & {
+    border-top: 1px solid black;
+    padding-top: 10px;
+  }
+}
+
+</style>

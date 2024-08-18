@@ -13,8 +13,16 @@ export type cvStore = {
   topSkills: { [key: string]: string[] },
   interests: { [key: string]: string[] },
   sections: {
-    Summary: cvSections,
-    Experience: cvSections,
+    Summary: { [key: string]: string[] },
+    Experience: { [key: string]: {
+      company: string,
+      type: string,
+      position: string | string[],
+      where: string,
+      when: [number | [number, number], number| [number, number]],
+      description: string | string[],
+      skills: string[]
+    }[] },
     Education: {
       what: string,
       in: string,
@@ -82,8 +90,17 @@ export const cvStore = defineStore({
         scrum: ["Building Bikes", "Fixing things"]
       },
       sections: {
-        "Summary": {
-
+        Summary: {
+          frontend: [
+            "I am a Frontend Developer with over 5 years of experience, holding PSM and SAFe 6.1 certifications. With a solid background in software development spanning more than 10 years, I transitioned into the Scrum Master role after earning my Master's in Business from the Polytechnic University of Bucharest. Colleagues often describe me as a builder of innovative digital solutions, an effective organizer, and someone who can develop MVPs, learn from them, and create plans for scaling. I understand the importance of delivering and testing features with real users in increments. By day, I am a dedicated Scrum Master; by night, I build startups. One of my proudest achievements is leading a project that positioned my startup as a semifinalist in the Preactilerator Chivas the Venture in 2016, where my partner became a TEDx speaker. I am grateful for the opportunity to work with amazing international teams on various projects, from financial software in fintech companies like Verifone, to medical hardware with Onera Health, and AI for health medical devices. I have learned that the greatest asset is the team. As a Scrum Master, I am dedicated to creating and mentoring teams to achieve their highest potential. While I recognize my limitations, I always focus on fostering a collaborative and productive environment, delivering high-quality code in testable increments, and leveraging continuous integration pipelines.",
+            "a bit longer front",
+            "superlong front",
+          ],
+          Scrum: [
+            "I am a Scrum Master with over 5 years of experience, holding PSM and SAFe 6.1 certifications. With a solid background in software development spanning more than 10 years, I transitioned into the Scrum Master role after earning my Master's in Business from the Polytechnic University of Bucharest. Colleagues often describe me as a builder of innovative digital solutions, an effective organizer, and someone who can develop MVPs, learn from them, and create plans for scaling. I understand the importance of delivering and testing features with real users in increments. By day, I am a dedicated Scrum Master; by night, I build startups. One of my proudest achievements is leading a project that positioned my startup as a semifinalist in the Preactilerator Chivas the Venture in 2016, where my partner became a TEDx speaker. I am grateful for the opportunity to work with amazing international teams on various projects, from financial software in fintech companies like Verifone, to medical hardware with Onera Health, and AI for health medical devices. I have learned that the greatest asset is the team. As a Scrum Master, I am dedicated to creating and mentoring teams to achieve their highest potential. While I recognize my limitations, I always focus on fostering a collaborative and productive environment, delivering high-quality code in testable increments, and leveraging continuous integration pipelines.",
+            "a bit longer scrum",
+            "superlong scrum",
+          ]
         },
         "Education": [
           {
@@ -107,6 +124,66 @@ export const cvStore = defineStore({
           },
         ],
         "Experience": {
+          frontend: [
+            {
+              company: "vinylDucky.nl",
+              type: "ZZP",
+              position: "Scrum Master",
+              where: "Eindhoven, NL",
+              when: [[2023,10], 0],
+              description: ["A", "B", "C"],
+              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
+            },
+            {
+              company: "Onera Health",
+              type: "Full-Time",
+              position: ["Scrum Master", "Frontend Developer"],
+              where: "Eindhoven, NL",
+              when: [[2022,10], [2023,10]],
+              description: ["B", "C", "C"],
+              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
+            },
+            {
+              company: "Meditools",
+              type: "ZZP",
+              position: ["Scrum Master", "Full Stack Developer"],
+              where: "'s-Hertogenbosch, Netherlands",
+              when: [[2021,2], [2022,9]],
+              description: ["B", "C", "C"],
+              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
+            },
+            {
+              company: "2checkout now Verifone",
+              type: "ZZP",
+              position: ["Scrum Master", "Full Stack Developer"],
+              where: "'s-Hertogenbosch, Netherlands",
+              when: [[2021,2], [2022,9]],
+              description: ["B", "C", "C"],
+              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
+            },
+            {
+              company: "Techdex",
+              type: "ZZP",
+              position: ["Scrum Master", "Full Stack Developer"],
+              where: "'s-Hertogenbosch, Netherlands",
+              when: [[2021,2], [2022,9]],
+              description: ["B", "C", "C"],
+              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
+            },
+
+            {
+              company: "4PSA",
+              type: "ZZP",
+              position: ["Frontend Developer"],
+              where: "'s-Hertogenbosch, Netherlands",
+              when: [[2021,2], [2022,9]],
+              description: ["B", "C", "C"],
+              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
+            },
+          ],
+          Scrum: [
+
+          ],
 
         }
       },
@@ -131,7 +208,7 @@ export const cvStore = defineStore({
   },
   getters: {
     getBaseInfo: (state: cvStore) => {
-      return (url: string[]): string => {
+      return (url: string[], verbose?: boolean): any => {
         const data = _.get(state, url)
         let currentData = ""
 
@@ -145,6 +222,15 @@ export const cvStore = defineStore({
           const keys = Object.keys(data as any)
           currentData = _.get(state, [...url, keys[0]]) as string
         }
+
+        if(verbose) {
+          if(currentData[state.verbose.level]) {
+            return currentData[state.verbose.level] 
+          } else {
+            currentData[currentData.length - 1];
+          }
+        }
+
         return currentData
       }
     },
