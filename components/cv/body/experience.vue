@@ -21,7 +21,7 @@ const buildPosition = (d: string | string[]) => {
     <div class="ex-line" v-for="(d, k ) in store.getBaseInfo(['sections','Experience'])" :key="k">
       <h5>{{ buildPosition(d.position) }}</h5>
       <h6>{{ d.company }} | {{ d.type }}</h6>
-      <p>{{ d.when }}</p>
+      <CvHelpTime :time="d.when" />
       <p>{{ d.description[store.verbose.level] }}</p>
       <p>Skills: {{ d.skills.join(", ") }}</p>
     </div>

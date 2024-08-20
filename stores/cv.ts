@@ -1,5 +1,10 @@
 import _ from 'underscore'
 
+enum CVquery {
+    frontend = 'frontend',
+    scrum = 'scrum',
+}
+
 export type cvStore = {
   personalInfo: {
     image: string,
@@ -31,7 +36,7 @@ export type cvStore = {
       verboseMin?: number,
     }[],
   },
-  currentQuery: string,
+  currentQuery: CVquery | "",
   verbose: {
     data: string[],
     level: number,
@@ -42,11 +47,11 @@ export type cvStore = {
 }
 
 type cvStrings = {
-  frontend?: string | string[],
-  scrum: string | string[],
+  [CVquery.frontend]?: string | string[],
+  [CVquery.scrum]: string | string[],
 } | {
-  frontend: string | string[],
-  scrum?: string | string[],
+  [CVquery.frontend]: string | string[],
+  [CVquery.scrum]?: string | string[],
 }
 
 export type cvSections = {
@@ -61,8 +66,8 @@ export const cvStore = defineStore({
         image: "/img/radu-dragan-aurel-scrum-frontend-developer.jpg",
         name: "Radu Dragan",
         jobTitle: {
-          frontend: "Frontend Developer",
-          scrum: "Scrum Master"
+          [CVquery.frontend]: "Frontend Developer",
+          [CVquery.scrum]: "Scrum Master"
         },
         location: "Eindhoven Netherlands",
         contact: {
@@ -82,21 +87,21 @@ export const cvStore = defineStore({
         }
       },
       topSkills: {
-        frontend: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum", "UI/UX Design"],
-        scrum: ["Scrum Master", "Problem solving", "Development thinking", "Design thinking"]
+        [CVquery.frontend]: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum", "UI/UX Design"],
+        [CVquery.scrum]: ["Scrum Master", "Problem solving", "Development thinking", "Design thinking"]
       },
       interests: {
-        frontend: ["Building Cargo Bikes", "Kayaking", "DIY", "traveling"],
-        scrum: ["Building Bikes", "Fixing things"]
+        [CVquery.frontend]: ["Building Cargo Bikes", "Kayaking", "DIY", "traveling"],
+        [CVquery.scrum]: ["Building Bikes", "Fixing things"]
       },
       sections: {
         Summary: {
-          frontend: [
+          [CVquery.frontend]: [
             "I am a Frontend Developer with over 5 years of experience, holding PSM and SAFe 6.1 certifications. With a solid background in software development spanning more than 10 years, I transitioned into the Scrum Master role after earning my Master's in Business from the Polytechnic University of Bucharest. Colleagues often describe me as a builder of innovative digital solutions, an effective organizer, and someone who can develop MVPs, learn from them, and create plans for scaling. I understand the importance of delivering and testing features with real users in increments. By day, I am a dedicated Scrum Master; by night, I build startups. One of my proudest achievements is leading a project that positioned my startup as a semifinalist in the Preactilerator Chivas the Venture in 2016, where my partner became a TEDx speaker. I am grateful for the opportunity to work with amazing international teams on various projects, from financial software in fintech companies like Verifone, to medical hardware with Onera Health, and AI for health medical devices. I have learned that the greatest asset is the team. As a Scrum Master, I am dedicated to creating and mentoring teams to achieve their highest potential. While I recognize my limitations, I always focus on fostering a collaborative and productive environment, delivering high-quality code in testable increments, and leveraging continuous integration pipelines.",
             "a bit longer front",
             "superlong front",
           ],
-          Scrum: [
+          [CVquery.scrum]: [
             "I am a Scrum Master with over 5 years of experience, holding PSM and SAFe 6.1 certifications. With a solid background in software development spanning more than 10 years, I transitioned into the Scrum Master role after earning my Master's in Business from the Polytechnic University of Bucharest. Colleagues often describe me as a builder of innovative digital solutions, an effective organizer, and someone who can develop MVPs, learn from them, and create plans for scaling. I understand the importance of delivering and testing features with real users in increments. By day, I am a dedicated Scrum Master; by night, I build startups. One of my proudest achievements is leading a project that positioned my startup as a semifinalist in the Preactilerator Chivas the Venture in 2016, where my partner became a TEDx speaker. I am grateful for the opportunity to work with amazing international teams on various projects, from financial software in fintech companies like Verifone, to medical hardware with Onera Health, and AI for health medical devices. I have learned that the greatest asset is the team. As a Scrum Master, I am dedicated to creating and mentoring teams to achieve their highest potential. While I recognize my limitations, I always focus on fostering a collaborative and productive environment, delivering high-quality code in testable increments, and leveraging continuous integration pipelines.",
             "a bit longer scrum",
             "superlong scrum",
@@ -124,7 +129,7 @@ export const cvStore = defineStore({
           },
         ],
         "Experience": {
-          frontend: [
+          [CVquery.frontend]: [
             {
               company: "vinylDucky.nl",
               type: "ZZP",
@@ -141,7 +146,7 @@ export const cvStore = defineStore({
               where: "Eindhoven, NL",
               when: [[2022,10], [2023,10]],
               description: ["B", "C", "C"],
-              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
+              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum", "x"],
             },
             {
               company: "Meditools",
@@ -178,10 +183,10 @@ export const cvStore = defineStore({
               where: "'s-Hertogenbosch, Netherlands",
               when: [[2021,2], [2022,9]],
               description: ["B", "C", "C"],
-              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
+              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving"],
             },
           ],
-          Scrum: [
+          [CVquery.scrum]: [
 
           ],
 
@@ -256,6 +261,19 @@ export const cvStore = defineStore({
         else if (state.verbose.level >= level) { return true }
         return false
       }
+    },
+    
+    getSkills(state: cvStore) {
+      let date:string[] = []
+      console.log(state.currentQuery)
+      if(state.currentQuery) {
+        state.sections.Experience[state.currentQuery].forEach(element => {
+          date = [...date, ...element.skills]
+        });
+  
+        return [...new Set(date)]
+      }
+      return []
     }
   }
 })
