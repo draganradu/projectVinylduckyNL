@@ -21,6 +21,7 @@ export type mainStore = {
   },
   pages: pageStore,
   socialMedia: { [key: string]: string }
+  isProduction: boolean
 }
 
 // 1 | Store Data
@@ -28,7 +29,7 @@ export const useCounterStore = defineStore({
   id: 'appData',
   state: (): mainStore => {
     return {
-      version: "0.0.1",
+      version: "0.0.2",
       modes: {
         modalOpen: true,
         maintenance: true,
@@ -71,7 +72,10 @@ export const useCounterStore = defineStore({
         "behance": "https://www.behance.net/vinylducky",
         "twitter": "https://x.com/vinylduckynl",
         "youtube": "https://www.youtube.com/channel/UCLxGVQzx9ZIp2JsIGmRQVtA",
-      }
+      },
+      isProduction: (() => {
+        return true
+      })()
     }
   },
 

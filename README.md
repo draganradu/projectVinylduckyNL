@@ -4,7 +4,7 @@
 
 # VinylDucky.nl
 
-Version: __0.0.1__
+Version: __0.0.2__
 Sprint: 1
 
 At our core we are thinkerers, and this is one of our projects. We love making demos and letting people have a look. If you found anything interesting just leave a message.

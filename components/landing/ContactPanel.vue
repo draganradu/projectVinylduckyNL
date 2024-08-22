@@ -3,6 +3,7 @@
 // ------------- Hooks / methods
 const localPath = useLocalePath()
 const { setLocale, locale } = useI18n();
+const store = useCounterStore();
 
 // ------------- Logic
 const toggleLang = () => {
@@ -12,7 +13,7 @@ const toggleLang = () => {
 </script>
 <template>
   <div class="col-12">
-    <div class="vb-p-v-5 vb-p-b-1 vb-p-t-2" @click="toggleLang">
+    <div v-if="store.isProduction" class="vb-p-v-5 vb-p-b-1 vb-p-t-2" @click="toggleLang">
       {{ $t("switch_language") }}
     </div>
     <div class="vb-p-v-5 vb-p-b-2">

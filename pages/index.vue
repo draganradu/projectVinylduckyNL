@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// ------------- 0.0.1
+// ------------- 0.0.2
 // ------------- init
 definePageMeta({ layout: "landing" })
 const appStore = useCounterStore();

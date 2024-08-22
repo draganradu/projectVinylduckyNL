@@ -7,20 +7,23 @@ const data = {
   CVn: "en/cv/",
   CVf: "en/cv/frontend",
 }
+
+const storage = useCounterStore();
 </script>
 
 <template>
   <div class="copyright">
-    <hr />
-    {{ $t("projects") }}:
-    <div class="copyright-links">
-      <span v-for="(k, i) in data" :key="i">
-        <NuxtLink :to="k">{{ $t(i) }}</NuxtLink>
-        <span class="divider">|</span>
+    <div v-if="storage.isProduction">
+      <hr />
+      {{ $t("projects") }}:
+      <div class="copyright-links">
+        <span v-for="(k, i) in data" :key="i">
+          <NuxtLink :to="k">{{ $t(i) }}</NuxtLink>
+          <span class="divider">|</span>
 
-      </span>
+        </span>
+      </div>
     </div>
-
     <hr />
     <div>
       {{ $t("copyright_footer") }}
@@ -36,7 +39,7 @@ const data = {
 
 .copyright-links {
   display: inline;
-  
+
   span:last-child {
     .divider {
       display: none;
