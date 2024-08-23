@@ -5,12 +5,7 @@ const store = cvStore()
 
 <template>
   <section>
-    <div>
-      <h2>
-        <BootstrapIcon name="backspace-fill" />
-        Skills
-      </h2>
-    </div>
+    <CvBodySectionTitle icon="backspace-fill" text="Skills" />
     {{ store.getSkills.join(", ") }}
   </section>
 </template>

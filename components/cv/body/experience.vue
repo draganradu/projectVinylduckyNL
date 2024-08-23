@@ -12,12 +12,7 @@ const buildPosition = (d: string | string[]) => {
 
 <template>
   <section>
-    <div>
-      <h2>
-        <BootstrapIcon name="backspace-fill" />
-        Experience
-      </h2>
-    </div>
+    <CvBodySectionTitle icon="backspace-fill" text="Experience" />
     <div class="ex-line" v-for="(d, k ) in store.getBaseInfo(['sections','Experience'])" :key="k">
       <h5>{{ buildPosition(d.position) }}</h5>
       <h6>{{ d.company }} | {{ d.type }}</h6>

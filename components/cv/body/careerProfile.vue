@@ -4,14 +4,9 @@ const store = cvStore()
 
 <template>
   <section class="main-body-section">
-    <div class="title">
-      <h2>        
-        <BootstrapIcon name="person-bounding-box" class="icon" />
-        Summery
-      </h2>
-    </div>
+    <CvBodySectionTitle icon="person-bounding-box" text="Summery" />
     <p>
-      {{ store.getBaseInfo(['sections','Summary'], true) }}
+      {{ store.getBaseInfo(['sections', 'Summary'], true) }}
     </p>
   </section>
 </template>
