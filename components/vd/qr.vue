@@ -8,7 +8,7 @@ const props = defineProps({
 // ------------- Logic
 
 class qrLogic {
-  
+
   private apiUrl: string;
   private data: { data: string, format: string, color: string };
 
@@ -34,6 +34,10 @@ class qrLogic {
       color: props.color
     }
   }
+
+  get outputText() {
+    return JSON.parse(decodeURIComponent(this.data.data)).dbID
+  }
 }
 
 const logic = new qrLogic(props)
@@ -47,6 +51,9 @@ watch(() => props.text, (newQuestion, oldQuestion) => {
 </script>
 
 <template>
+  <div class="qr-text text-end sidebar-color">
+    <span>ID:</span> {{ logic.outputText }}
+  </div>
   <div class="qr">
     <img :src="logic.buildUrl()" />
   </div>
@@ -62,5 +69,14 @@ watch(() => props.text, (newQuestion, oldQuestion) => {
   padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
+
+  &-text {
+    padding-right: 20px;
+    background-color: red;
+    margin-top: 20px;
+    span {
+      opacity: 0.5;
+    }
+  }
 }
 </style>

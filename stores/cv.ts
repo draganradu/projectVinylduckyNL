@@ -1,8 +1,8 @@
 import _ from 'underscore'
 
 enum CVquery {
-    frontend = 'frontend',
-    scrum = 'scrum',
+  frontend = 'frontend',
+  scrum = 'scrum',
 }
 
 export type cvStore = {
@@ -19,15 +19,17 @@ export type cvStore = {
   interests: { [key: string]: string[] },
   sections: {
     Summary: { [key: string]: string[] },
-    Experience: { [key: string]: {
-      company: string,
-      type: string,
-      position: string | string[],
-      where: string,
-      when: [number | [number, number], number| [number, number]],
-      description: string | string[],
-      skills: string[]
-    }[] },
+    Experience: {
+      [key: string]: {
+        company: string,
+        type: string,
+        position: string | string[],
+        where: string,
+        when: [number | [number, number], number | [number, number]],
+        description: string | string[],
+        skills: string[]
+      }[]
+    },
     Education: {
       what: string,
       in: string,
@@ -97,9 +99,9 @@ export const cvStore = defineStore({
       sections: {
         Summary: {
           [CVquery.frontend]: [
-            "I am a Frontend Developer with over 10 years of experience, i am also holding PSM and SAFe 6.1 certifications. Colleagues often describe me as a builder of innovative digital solutions, an effective organizer, and someone who can develop MVPs, learn from them, and create plans for scaling. I understand the importance of delivering and testing features with real users in increments. By day, I am a dedicated Developer; by night, I build startups. One of my proudest achievements is leading a project that positioned my startup as a semifinalist in the Preactilerator Chivas the Venture in 2016, where my partner became a TEDx speaker. I am grateful for the opportunity to work with amazing international teams on various projects, from financial software in fintech companies like Verifone, to medical hardware with Onera Health, and AI for health medical devices. I have learned that the greatest asset is the team. As a Scrum Master, I am dedicated to creating and mentoring teams to achieve their highest potential. While I recognize my limitations, I always focus on fostering a collaborative and productive environment, delivering high-quality code in testable increments, and leveraging continuous integration pipelines.",
-            "a bit longer front",
-            "superlong front",
+            "I am a Frontend Developer with over 10 years of experience, I specialize in Vue/Nuxt, but I do not shy away from the occasional React or Typescript project. On the backend, I am a NodeJS developer to the bitter end. Just because I can share types between reports. On the management side, I am holding an up to date PSM and SAFe 6.1 certifications. One of my proudest achievements is leading a project that positioned my startup as a semifinalist in the Preactilerator Chivas the Venture in 2016, where my partner became a TEDx speaker.",
+            "I am a Frontend Developer with over 10 years of experience, I specialize in Vue/Nuxt, but I do not shy away from the occasional React or Typescript project. On the backend, I am a NodeJS developer to the bitter end. Just because I can share types between reports. On the management side, I am holding an up to date PSM and SAFe 6.1 certifications. Colleagues often describe me as a builder of innovative digital solutions, and an effective organizer. Someone who can develop MVPs, learn from them and create plans for scaling. I understand the importance of delivering and testing features with real users in increments. One of my proudest achievements is leading a project that positioned my startup as a semifinalist in the Preactilerator Chivas the Venture in 2016, where my partner became a TEDx speaker. I am grateful for the opportunity to work with amazing international teams on various projects, from financial software in fintech companies like Verifone to medical hardware with Onera Health, and AI for health medical devices. I have learned that the greatest asset is the team.",
+            "I am a Frontend Developer with over 10 years of experience, I am a big fan of Vue 3/Nuxt, but I do not shy away from the occasional React or Typescript project. On the backend, I am a NodeJS developer to the bitter end. Just because I can share types between Git reports. On the management side, I am holding an up to date PSM and SAFe 6.1 certifications. Colleagues often describe me as a builder of innovative digital solutions, and an effective organizer. Someone who can develop MVPs, learn from them and create plans for scaling. I understand the importance of delivering and testing features with real users in increments. By day, I am a dedicated Developer; by night, I build startups. One of my proudest achievements is leading a project that positioned my startup as a semifinalist in the Preactilerator Chivas the Venture in 2016, where my partner became a TEDx speaker. I am grateful for the opportunity to work with amazing international teams on various projects, from financial software in fintech companies like Verifone to medical hardware with Onera Health, and AI for health medical devices. I have learned that the greatest asset is the team. As a Senior Developer, I am dedicated to creating and mentoring teams to achieve their highest potential. While I recognize my limitations, I always focus on fostering a collaborative and productive environment, delivering high-quality code in testable increments, and leveraging continuous integration pipelines to better the deployment. My main motivation is to create the best experience for my clients. I am excited to work with you on your next project.",
           ],
           [CVquery.scrum]: [
             "I am a Scrum Master with over 5 years of experience, holding PSM and SAFe 6.1 certifications. With a solid background in software development spanning more than 10 years, I transitioned into the Scrum Master role after earning my Master's in Business from the Polytechnic University of Bucharest. Colleagues often describe me as a builder of innovative digital solutions, an effective organizer, and someone who can develop MVPs, learn from them, and create plans for scaling. I understand the importance of delivering and testing features with real users in increments. By day, I am a dedicated Scrum Master; by night, I build startups. One of my proudest achievements is leading a project that positioned my startup as a semifinalist in the Preactilerator Chivas the Venture in 2016, where my partner became a TEDx speaker. I am grateful for the opportunity to work with amazing international teams on various projects, from financial software in fintech companies like Verifone, to medical hardware with Onera Health, and AI for health medical devices. I have learned that the greatest asset is the team. As a Scrum Master, I am dedicated to creating and mentoring teams to achieve their highest potential. While I recognize my limitations, I always focus on fostering a collaborative and productive environment, delivering high-quality code in testable increments, and leveraging continuous integration pipelines.",
@@ -135,7 +137,7 @@ export const cvStore = defineStore({
               type: "ZZP",
               position: "Scrum Master",
               where: "Eindhoven, NL",
-              when: [[2023,10], 0],
+              when: [[2023, 10], 0],
               description: ["A", "B", "C"],
               skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
             },
@@ -144,7 +146,7 @@ export const cvStore = defineStore({
               type: "Full-Time",
               position: ["Scrum Master", "Frontend Developer"],
               where: "Eindhoven, NL",
-              when: [[2022,10], [2023,10]],
+              when: [[2022, 10], [2023, 10]],
               description: ["B", "C", "C"],
               skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum", "x"],
             },
@@ -153,7 +155,7 @@ export const cvStore = defineStore({
               type: "ZZP",
               position: ["Scrum Master", "Full Stack Developer"],
               where: "'s-Hertogenbosch, Netherlands",
-              when: [[2021,2], [2022,9]],
+              when: [[2021, 2], [2022, 9]],
               description: ["B", "C", "C"],
               skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
             },
@@ -162,7 +164,7 @@ export const cvStore = defineStore({
               type: "ZZP",
               position: ["Scrum Master", "Full Stack Developer"],
               where: "'s-Hertogenbosch, Netherlands",
-              when: [[2021,2], [2022,9]],
+              when: [[2021, 2], [2022, 9]],
               description: ["B", "C", "C"],
               skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
             },
@@ -171,7 +173,7 @@ export const cvStore = defineStore({
               type: "ZZP",
               position: ["Scrum Master", "Full Stack Developer"],
               where: "'s-Hertogenbosch, Netherlands",
-              when: [[2021,2], [2022,9]],
+              when: [[2021, 2], [2022, 9]],
               description: ["B", "C", "C"],
               skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
             },
@@ -181,7 +183,7 @@ export const cvStore = defineStore({
               type: "ZZP",
               position: ["Frontend Developer"],
               where: "'s-Hertogenbosch, Netherlands",
-              when: [[2021,2], [2022,9]],
+              when: [[2021, 2], [2022, 9]],
               description: ["B", "C", "C"],
               skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving"],
             },
@@ -228,9 +230,9 @@ export const cvStore = defineStore({
           currentData = _.get(state, [...url, keys[0]]) as string
         }
 
-        if(verbose) {
-          if(currentData[state.verbose.level]) {
-            return currentData[state.verbose.level] 
+        if (verbose) {
+          if (currentData[state.verbose.level]) {
+            return currentData[state.verbose.level]
           } else {
             currentData[currentData.length - 1];
           }
@@ -262,15 +264,15 @@ export const cvStore = defineStore({
         return false
       }
     },
-    
+
     getSkills(state: cvStore) {
-      let date:string[] = []
+      let date: string[] = []
       console.log(state.currentQuery)
-      if(state.currentQuery) {
+      if (state.currentQuery) {
         state.sections.Experience[state.currentQuery].forEach(element => {
           date = [...date, ...element.skills]
         });
-  
+
         return [...new Set(date)]
       }
       return []

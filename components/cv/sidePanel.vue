@@ -6,13 +6,15 @@ const { buildQrData } = storeToRefs(store)
 </script>
 
 <template>
-    <div id="sidebar" class="col-4 sidebar-color text-white">
+  <div id="sidebar" class="col-4 text-white">
+    <div class="sidebar-color text-white">
       <CvSideBarImage />
       <CvSideBarContact />
       <CvSideBarTopSkills />
       <CvSideBarEducation />
       <CvSideBarLanguage />
       <CvSideBarInterests />
-      <VdQr :text="buildQrData" />
     </div>
+    <VdQr :text="buildQrData" />
+  </div>
 </template>
