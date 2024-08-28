@@ -17,4 +17,14 @@ const toolStore = useCounterStoreTools();
       </ul>
     </div>
   </div>
+  <div class="card" v-if="toolStore.searchResultOther.length > 0">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item list-group-item-success">Other Boxes</li>
+      <li class="list-group-item" v-for="i in toolStore.searchResultOther" :key="i">
+        {{ toolStore.otherBoxes[i].id }}
+        <small class="d-block">{{ toolStore.otherBoxes[i].contains.join(" , ") }}</small>
+      </li>
+    </ul>
+
+  </div>
 </template>

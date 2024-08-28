@@ -3,18 +3,24 @@ import boxData from './mockData/boxes.json';
 
 // 0 | Store types
 export type boxRow = { id: string, highlight?: boolean, in: { content: string, rule?: string, highlight?: boolean }[] }
+export type otherBox = {
+  id: string
+  contains: string[]
+  title?: string,
+}
 
 export type StoreTools = {
   boxes: boxRow[][],
+  otherBoxes: otherBox[],
   searchResult: Searchable[] | [],
-  selectedBox: { 
-    showSelected: boolean, 
-    id: [number, number] 
+  searchResultOther: number[] | [] ,
+  selectedBox: {
+    showSelected: boolean,
+    id: [number, number]
   }
 }
 
 export type Searchable = { id: [number, number, number], content: string, rule?: string }
-
 
 // 1 | Store Data
 export const useCounterStoreTools = defineStore(
@@ -22,7 +28,30 @@ export const useCounterStoreTools = defineStore(
     id: "toolsData",
     state: (): StoreTools => ({
       boxes: boxData as boxRow[][],
+      otherBoxes: [{
+        id: "112",
+        title: "super cool box",
+        contains: ["ax", "az", "at", "ad"]
+      },
+      {
+        id: "B middle empty",
+        contains: ["az"]
+      },
+      {
+        id: "C middle empty",
+        contains: ["ay"]
+      },
+      {
+        id: "D middle empty",
+        contains: ["ay"]
+      },
+      {
+        id: "E middle empty",
+        contains: ["ay"]
+      }
+      ],
       searchResult: [],
+      searchResultOther: [],
       selectedBox: {
         showSelected: false,
         id: [0, 0],
@@ -94,6 +123,20 @@ export const useCounterStoreTools = defineStore(
         return temp
       },
 
+      searchableStructureOther(input:string) {
+        const newSearch = new Fuse(this.otherBoxes, {
+          threshold: 0.4,
+          minMatchCharLength: 2,
+          keys: ['contains', 'title'],
+        })
+        .search(input)
+        .map((x) => {
+          return x.refIndex
+        });
+        this.searchResultOther = newSearch as number[]
+        console.log(input, "search", newSearch)
+      },
+
       runSearch(searchValue: string) {
         const flat = this.searchableStructure()
 
@@ -112,6 +155,8 @@ export const useCounterStoreTools = defineStore(
         // highlight box
         this.removeHighlight()
         this.addHighlight()
+
+        this.searchableStructureOther(searchValue)
       },
 
       selectABox(id: [number, number]) {
