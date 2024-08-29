@@ -68,5 +68,5 @@ const outputDate = new LogicTime(props.time)
 </script>
 
 <template>
-  {{ outputDate.outputFrom }} - {{ outputDate.outputTo }} ({{ outputDate.durationString }})
+  <span class="vd-size-normal vd-size-regular">{{ outputDate.outputFrom }} - {{ outputDate.outputTo }} ({{ outputDate.durationString }})</span>
 </template>

@@ -4,34 +4,32 @@ const store = cvStore()
 
 <template>
   <section id="headline">
-    <h1>{{ store.personalInfo.name }}</h1>
-    <h2>{{ store.getBaseInfo(["personalInfo", "jobTitle"]) }}</h2>
-    <h3>{{ store.personalInfo.location }}</h3>
+    <h1 class="vd-size-xx-large vd-size-regular">{{ store.personalInfo.name }}</h1>
+    <h2 class="vd-size-normal vd-size-bold">{{ store.getBaseInfo(["personalInfo", "jobTitle"]) }}</h2>
+    <h3 class="vd-size-normal vd-size-light">{{ store.personalInfo.location }}</h3>
   </section>
 </template>
 
 <style scoped lang="scss">
 #headline {
-  h1 {
-    font-size: 3.2em;
-    font-weight: 400;
-  }
-
   h2 {
-    font-weight: 400;
-    font-size: 1.6em;
     border-top: 1px solid rgba($color: #000000, $alpha: 0.2);
-    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.2);
+    ;
     padding-top: 5px;
     padding-bottom: 5px;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   h3 {
-    font-weight: 100;
-    font-size: 1em;
     text-transform: none;
   }
+
+  margin-bottom: 50px;
+}
+
+h1 {
+  margin-top: 70px !important;
 }
 </style>

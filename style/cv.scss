@@ -75,7 +75,7 @@ $padding-vertical: 30px;
     }
 
     h1 {
-      font-size: 24px;
+      // font-size: 24px;
       font-weight: 900;
       margin-top: 0;
       margin-bottom: 10px;
@@ -83,7 +83,7 @@ $padding-vertical: 30px;
 
     h2 {
       color: rgba(255, 255, 255, 0.6);
-      font-size: 14px;
+      // font-size: 14px;
       font-weight: 400;
       margin-top: 0;
       margin-bottom: 0;
@@ -92,8 +92,8 @@ $padding-vertical: 30px;
   }
 }
 
-.frontend#cv .sidebar-color{
-  background-color: #abdda4!important;
+.frontend#cv .sidebar-color {
+  background-color: #abdda4 !important;
 }
 
 #cv {
@@ -101,10 +101,10 @@ $padding-vertical: 30px;
   // general section
   section {
     padding: 0px $padding-horizontal;
-    margin:  $padding-vertical 0px;
+    margin: $padding-vertical 0px;
 
     h3 {
-      font-size: 16px;
+      // font-size: 16px;
       font-weight: 800;
       text-transform: uppercase;
     }
@@ -115,7 +115,7 @@ $padding-vertical: 30px;
     }
 
     p {
-      font-size: 14px;
+      // font-size: 14px;
     }
   }
 }
@@ -126,10 +126,10 @@ $padding-vertical: 30px;
   .line-education {
     margin-top: 0px;
 
-    h4,
-    p {
-      font-size: 14px;
-    }
+    // h4,
+    // p {
+    //   font-size: 14px;
+    // }
 
     h4 {
       font-weight: 700;
@@ -156,4 +156,32 @@ $padding-vertical: 30px;
 #cv section:last-child {
   margin-bottom: 0px;
   padding-bottom: $padding-vertical;
+}
+
+
+$font-size: (
+  "x-small": 6px,
+  "small": 8px,
+  "normal": 12px,
+  "large": 14px,
+  "x-large": 20px,
+  "xx-large": 32px
+);
+
+@each $name, $size in $font-size {
+  .vd-size-#{$name} {
+    font-size: $size!important;
+  }
+}
+
+$font-weights: ("light": 100, "regular": 400, "medium": 500, "bold": 700);
+
+@each $name, $size in $font-weights {
+  .vd-size-#{$name} {
+    font-weight: $size!important;
+  }
+}
+
+.vd-red {
+  color: red;
 }

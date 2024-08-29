@@ -39,11 +39,15 @@ const outputData = store.getBaseInfo(['sections', 'Experience'])
     <CvBodySectionTitle icon="diagram-3" text="Experience" />
     <div class="text-break-spaces" v-if="outputData.length > 0">
       <div class="ex-line" v-for="(d, k ) in outputData" :key="k" v-show="showByLevel(d.level)">
-        <h5>{{ buildPosition(d.position) }}</h5>
-        <h6>{{ d.company }} | {{ d.type }}</h6>
+        <h5 class="vd-size-normal vd-size-regular">{{ buildPosition(d.position) }}</h5>
+        <h6 class="vd-size-large"><b>{{ d.company }}</b><span class="vd-size-light"> | {{ d.type }}</span></h6>
         <CvHelpTime :time="d.when" />
-        <p>{{ d.description[store.verbose.level] }}</p>
-        <p><b>Skills:</b> {{ buildSkills(d.skills, store.verbose.level) }}</p>
+        <p class="vd-size-normal vd-size-regular">{{ d.where }}</p>
+        <p class="vd-size-normal vd-size-regular indent">{{ d.description[store.verbose.level] }}</p>
+        <p class="vd-size-normal skills">
+          <b class="vd-size-medium">Skills: </b>
+          <span class="vd-size-light">{{ buildSkills(d.skills, store.verbose.level) }}</span>
+        </p>
       </div>
     </div>
     <div v-else>
@@ -54,19 +58,28 @@ const outputData = store.getBaseInfo(['sections', 'Experience'])
 
 <style lang="scss" scoped>
 .ex-line {
+  margin-bottom: 20px;
+  break-inside: avoid;
 
-  h5,
-  h6 {
-    font-size: 1em;
+  padding-bottom: 20px;
+
+
+  p {
+    margin-bottom: 10px;
   }
 
-  h6 {
-    font-weight: 400;
+  .indent {
+    padding-left: 15px;
+    border-left: 1px solid rgba($color: #000000, $alpha: 0.2);
   }
+}
 
-  &+& {
-    border-top: 1px solid black;
-    padding-top: 10px;
-  }
+@page {
+  size: auto;
+  margin: 70px 0mm 25px 25px;
+}
+
+@page :first {
+  margin: 0mm 0mm 0mm 25px;
 }
 </style>

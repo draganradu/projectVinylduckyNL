@@ -6,8 +6,24 @@ const togglePanel = () => {
   showPanel.value = !showPanel.value
 }
 
-
 const { inputData } = store
+
+const generateID = async() => {
+  inputData.dbID = store.generateID()
+  store.checkDigit = await sha256(inputData.dbID)
+}
+
+const sha256 = async (message: any) => {
+  const msgBuffer = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  return hashHex.slice(0, 4);
+}
+
+
+
+generateID()
 
 </script>
 
@@ -22,7 +38,10 @@ const { inputData } = store
       <div class="card">
         <div class="card-body input-s">
           <div>
-            <label class="form-label">DB ID</label>
+            <label class="form-label d-flex justify-content-between">
+              DB ID
+              <BootstrapIcon name="arrow-clockwise" @click="generateID" />
+            </label>
             <input type="text" v-model="inputData.dbID" class="form-control" />
           </div>
 

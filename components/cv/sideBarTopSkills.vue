@@ -9,8 +9,8 @@ const verboseShow = (k: number) => {
 
 <template>
   <section id="sidebar-skills">
-    <h3>Top skills</h3>
-    <div class="line" v-for="(d, k ) in store.getBaseInfo(['topSkills'])" :key="k" v-show="verboseShow(k)" >
+    <CvHelpSidebarTitle>Top skills</CvHelpSidebarTitle>
+    <div class="line vd-size-normal vd-size-light" v-for="(d, k ) in store.getBaseInfo(['topSkills'])" :key="k" v-show="verboseShow(k)" >
     {{ d }}
     </div>
   </section>

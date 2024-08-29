@@ -36,6 +36,7 @@ export type cvStore = {
   inputData: {
     [key: string]: string,
   },
+  checkDigit: string,
 }
 
 export const cvStore = defineStore({
@@ -56,7 +57,8 @@ export const cvStore = defineStore({
           linkedin: "www.linkedin.com/in/radu-aureldragan-0a894172",
           company: "vinylducky.nl",
           git: "https://github.com/draganradu",
-          npm: "https://www.npmjs.com/package/simple-color-converter"
+          npm: "https://www.npmjs.com/package/simple-color-converter",
+          jira: "https://vinylducky.atlassian.net"
         },
         certifications: ["PSM", "SAFe 6.1"],
         language: {
@@ -71,7 +73,7 @@ export const cvStore = defineStore({
         [CvQuery.scrum]: ["Scrum Master", "Problem solving", "Development thinking", "Design thinking"]
       },
       interests: {
-        [CvQuery.frontend]: ["Building Cargo Bikes", "Kayaking", "DIY", "traveling"],
+        [CvQuery.frontend]: ["Building Cargo Bikes", "Kayaking", "DIY projects", "Traveling"],
         [CvQuery.scrum]: ["Building Bikes", "Fixing things"]
       },
       sections: {
@@ -135,7 +137,8 @@ export const cvStore = defineStore({
         dbID: "1234",
         companyName: "company",
         applicationLink: "link",
-      }
+      },
+      checkDigit: "1123",
     }
   },
   getters: {
@@ -170,9 +173,19 @@ export const cvStore = defineStore({
       const date = new Date();
       return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
     },
-    checkDigit(): string {
-      return "1123"
+
+
+
+
+    generateID() {
+      return () => {
+
+        const random = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+        this.checkDigit = "";
+        return random
+      }
     },
+
     buildQrData(): string {
       return encodeURIComponent(JSON.stringify({
         ...this.inputData,
@@ -193,10 +206,16 @@ export const cvStore = defineStore({
       let date: string[] = []
       if (state.currentQuery) {
         state.sections.Experience[state.currentQuery].forEach(element => {
-          date = [...date, ...element.skills]
+          if (this.verbose.level === 0) {
+            date = [...date, ...element.skills.slice(0, 5)]
+          } else if (this.verbose.level === 1) {
+            date = [...date, ...element.skills.slice(0, 10)]
+          } else {
+            date = [...date, ...element.skills]
+          }
         });
 
-        return [...new Set(date)]
+        return [...new Set(date)].sort().filter((item) => item !== "")
       }
       return []
     }

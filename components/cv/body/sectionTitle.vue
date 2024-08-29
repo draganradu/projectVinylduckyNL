@@ -7,7 +7,7 @@ const props = defineProps({
 
 <template>
   <div class="title">
-    <h2>
+    <h2 class="vd-size-x-large vd-size-medium">
       <BootstrapIcon :name="icon" class="icon" />
       {{ text }}
     </h2>
@@ -23,10 +23,7 @@ const props = defineProps({
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 20px;
-    padding-bottom: 13px;
-    font-size: 15px;
-    // display: inline-block;
-    // padding-bottom: 5px;
+    padding-bottom: 8px;
     vertical-align: middle;
   }
   border-bottom: 1px solid black;

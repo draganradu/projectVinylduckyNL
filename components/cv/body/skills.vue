@@ -6,9 +6,9 @@ const store = cvStore()
 <template>
   <section>
     <CvBodySectionTitle icon="clipboard-plus" text="Skills" />
-    <div v-if="store.getSkills.length > 0">
+    <p class="vd-size-normal vd-size-regular" v-if="store.getSkills.length > 0">
       {{ store.getSkills.join(", ") }}
-    </div>
+    </p>
     <div v-else>
       No Data
     </div>

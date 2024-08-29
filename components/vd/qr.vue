@@ -52,7 +52,7 @@ watch(() => props.text, (newQuestion, oldQuestion) => {
 
 <template>
   <div class="qr-text text-end sidebar-color">
-    <span>ID:</span> {{ logic.outputText }}
+    <!-- <span>ID:</span> {{ logic.outputText }} -->
   </div>
   <div class="qr">
     <img :src="logic.buildUrl()" />
