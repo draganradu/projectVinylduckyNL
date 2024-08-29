@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const toolStore = useCounterStoreTools();
+const toolStore = useStoreTools();
 const showModal = ref(false);
 
 const add = (size: number) => {

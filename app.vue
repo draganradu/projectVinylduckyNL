@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const appStore = useCounterStore();
-const { modalOpen } = ref(appStore.modes); // toDo:ECBGI-117
+const store = useStore();
+const { modalOpen } = ref(store.modes); // toDo:ECBGI-117
 </script>
 
 <template>

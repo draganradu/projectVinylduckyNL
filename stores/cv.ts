@@ -1,6 +1,6 @@
 import _ from 'underscore'
 
-enum CVquery {
+export enum CVquery {
   frontend = 'frontend',
   scrum = 'scrum',
 }
@@ -20,7 +20,7 @@ export type cvStore = {
   sections: {
     Summary: { [key: string]: string[] },
     Experience: {
-      [key: string]: {
+      [key in CVquery]: {
         company: string,
         type: string,
         position: string | string[],
@@ -29,6 +29,9 @@ export type cvStore = {
         description: string | string[],
         skills: string[]
       }[]
+    },
+    Projects: {
+      [key in CVquery]: {}[]
     },
     Education: {
       what: string,
@@ -191,8 +194,13 @@ export const cvStore = defineStore({
           [CVquery.scrum]: [
 
           ],
+        },
+        "Projects": {
+          [CVquery.frontend]: [],
+          [CVquery.scrum]: [
 
-        }
+          ],
+        },
       },
       currentQuery: "",
       verbose: {
@@ -249,7 +257,6 @@ export const cvStore = defineStore({
       return "1123"
     },
     buildQrData(): string {
-      console.log(this.inputData)
       return encodeURIComponent(JSON.stringify({
         ...this.inputData,
         verbose: this.verbose.level,
@@ -267,7 +274,6 @@ export const cvStore = defineStore({
 
     getSkills(state: cvStore) {
       let date: string[] = []
-      console.log(state.currentQuery)
       if (state.currentQuery) {
         state.sections.Experience[state.currentQuery].forEach(element => {
           date = [...date, ...element.skills]

@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 // ------------- init
-const toolStore = useCounterStoreTools();
+const store = useStoreTools();
 
 // ------------- Logic
 const removeBox = () => {
-  toolStore.removeBox();
+  store.removeBox();
 }
 </script>
 

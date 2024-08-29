@@ -1,7 +1,7 @@
 <!-- 0.1.0 -->
 <script setup lang="ts">
 // ------------- Hooks
-const toolStore = useCounterStoreTools();
+const store = useStoreTools();
 
 // ------------- Props
 const props = defineProps({
@@ -20,7 +20,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div :class="['box']" :style="`height: ${templateSize}px;`" @click="toolStore.selectABox(boxId as [number, number])">
+  <div :class="['box']" :style="`height: ${templateSize}px;`" @click="store.selectABox(boxId as [number, number])">
     <div :class="['box-structure', `box-size-${props.box?.in.length}`]">
       <div v-for="i in box?.in" :key="i" :class="['drawers', i?.highlight ? 'highlight' : '']">
         <ToolsBoxTitle :title="i.content" :style="true" />

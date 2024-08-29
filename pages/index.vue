@@ -2,13 +2,13 @@
 // ------------- 0.0.2
 // ------------- init
 definePageMeta({ layout: "landing" })
-const appStore = useCounterStore();
+const store = useStore();
 
 // ------------- Data
-const { pages } = appStore;
+const { pages } = store;
 
 // ------------- Logic
-const getUrl = appStore.getUrl
+const getUrl = store.getUrl
 
 // ------------- SEO
 useSeoMeta(

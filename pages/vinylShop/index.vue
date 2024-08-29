@@ -1,8 +1,8 @@
 <script setup lang="ts">
 // ------------- init
-const appStore = useCounterStore();
+const store = useStore();
 
-const page = appStore.pages["vinylShop"];
+const page = store.pages["vinylShop"];
 
 // ------------- SEO
 

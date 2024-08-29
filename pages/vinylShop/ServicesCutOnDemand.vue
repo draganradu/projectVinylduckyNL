@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 // ------------- init
-const appStore = useCounterStore();
+const appStore = useStore();
 
 // ------------- Data
 const page = appStore.pages["cutOnDemand"];

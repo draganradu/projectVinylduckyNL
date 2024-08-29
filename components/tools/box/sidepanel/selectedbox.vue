@@ -1,17 +1,17 @@
 <script lang="ts" setup>
 // ------------- Hooks
-const toolStore = useCounterStoreTools();
+const store = useStoreTools();
 </script>
 
 <template>
-  <div v-if="toolStore.selectedBox.showSelected">
+  <div v-if="store.selectedBox.showSelected">
     <hr />
     <div class="d-flex justify-content-between">
       <div>
-        <b>Selected</b> <span>{{ toolStore.selectedBox.id }}</span>
+        <b>Selected</b> <span>{{ store.selectedBox.id }}</span>
       </div>
       <div>
-        <BootstrapIcon name="backspace-fill" class="pad" @click="toolStore.deSelectABox()" />
+        <BootstrapIcon name="backspace-fill" class="pad" @click="store.deSelectABox()" />
       </div>
     </div>
     <hr />

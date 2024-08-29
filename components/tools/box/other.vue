@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const store = useCounterStoreTools()
+const store = useStoreTools()
 </script>
 
 <template>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 // ------------- init
-const appStore = useCounterStore();
+const store = useStore();
 const localPath = useLocalePath()
 
 // ------------- Data
-const page = appStore.pages["scrum"];
+const page = store.pages["scrum"];
 
 const data = ref([
   {

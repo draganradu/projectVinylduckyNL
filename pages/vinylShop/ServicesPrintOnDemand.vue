@@ -1,9 +1,9 @@
 <script setup lang="ts">
 // ------------- init
-const appStore = useCounterStore();
+const store = useStore();
 
 // ------------- Data
-const page = appStore.pages["largeFormatPrint"];
+const page = store.pages["largeFormatPrint"];
 
 // ------------- SEO
 useSeoMeta(

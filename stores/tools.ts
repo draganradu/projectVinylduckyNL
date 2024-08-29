@@ -23,7 +23,7 @@ export type StoreTools = {
 export type Searchable = { id: [number, number, number], content: string, rule?: string }
 
 // 1 | Store Data
-export const useCounterStoreTools = defineStore(
+export const useStoreTools = defineStore(
   {
     id: "toolsData",
     state: (): StoreTools => ({
@@ -134,7 +134,6 @@ export const useCounterStoreTools = defineStore(
           return x.refIndex
         });
         this.searchResultOther = newSearch as number[]
-        console.log(input, "search", newSearch)
       },
 
       runSearch(searchValue: string) {

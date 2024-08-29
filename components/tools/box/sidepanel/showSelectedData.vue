@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 // ------------- Hooks
-const toolStore = useCounterStoreTools();
+const store = useStoreTools();
 
-const input = ref(toolStore.boxes[toolStore.selectedBox.id[0]][toolStore.selectedBox.id[1]].in)
+const input = ref(store.boxes[store.selectedBox.id[0]][store.selectedBox.id[1]].in)
 
-watch(() => toolStore.selectedBox.id, (newQuestion, oldQuestion) => {  
+watch(() => store.selectedBox.id, (newQuestion, oldQuestion) => {  
   if(newQuestion[0] !== oldQuestion[0] || newQuestion[1] !== oldQuestion[1]) {
-    input.value = toolStore.boxes[toolStore.selectedBox.id[0]][toolStore.selectedBox.id[1]].in
+    input.value = store.boxes[store.selectedBox.id[0]][store.selectedBox.id[1]].in
   }
 });
 

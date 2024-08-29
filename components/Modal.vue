@@ -1,16 +1,16 @@
 <!-- 0.1.0 -->
 <script setup lang="ts">
 // ------------- Init and Import
-const appStore = useCounterStore();
+const store = useStore();
 
 // ------------- Logic
 const toggleModal = () => {
-  appStore.toggleModal();
+  store.toggleModal();
 };
 </script>
 
 <template>
-  <div v-if="!!appStore.modes.modalOpen" class="modal-background">
+  <div v-if="!!store.modes.modalOpen" class="modal-background">
     <div id="modal" class="modal d-block" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

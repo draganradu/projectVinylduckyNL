@@ -25,7 +25,7 @@ export type mainStore = {
 }
 
 // 1 | Store Data
-export const useCounterStore = defineStore({
+export const useStore = defineStore({
   id: 'appData',
   state: (): mainStore => {
     return {

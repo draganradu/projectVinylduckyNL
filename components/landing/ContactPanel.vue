@@ -3,7 +3,7 @@
 // ------------- Hooks / methods
 const localPath = useLocalePath()
 const { setLocale, locale } = useI18n();
-const store = useCounterStore();
+const store = useStore();
 
 // ------------- Logic
 const toggleLang = () => {

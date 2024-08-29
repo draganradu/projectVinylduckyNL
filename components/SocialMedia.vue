@@ -1,10 +1,10 @@
 <!-- 0.1.0 -->
 <script setup lang="ts">
 // ------------- Init and Import
-const appStore = useCounterStore();
+const store = useStore();
 
 // ------------- Data
-const { socialMedia } = appStore;
+const { socialMedia } = store;
 </script>
 
 <template>

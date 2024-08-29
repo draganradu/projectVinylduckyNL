@@ -44,12 +44,7 @@ const { inputData } = store
             <label for="exampleInputEmail1" class="form-label">Check Digit: {{ store.checkDigit }}</label>
           </div>
 
-          <div>
-            <div class="btn-group" role="group" aria-label="Large button group">
-              <NuxtLink type="button" class="btn btn-outline-secondary" to="/en/cv/frontend">Front</NuxtLink>
-              <NuxtLink type="button" class="btn btn-outline-secondary" to="/en/cv/scrum">Scrum</NuxtLink>
-            </div>
-          </div>
+          <CvHelpHeaderLink />
 
         </div>
       </div>

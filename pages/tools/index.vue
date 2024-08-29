@@ -1,19 +1,19 @@
 <!-- 0.1.0 -->
 <script setup lang="ts">
 // ------------- init
-const toolStore = useCounterStoreTools();
+const store = useStoreTools();
 
 // ------------- Hooks 
-const { longestRow } = storeToRefs(toolStore);
+const { longestRow } = storeToRefs(store);
 const calculateHeight = (longestRowTemplate: number) => {
   return ((useWindowSize().width.value - (400 + 50)) / longestRowTemplate)
 }
 
 // ------------- Data
-const { boxes } = toolStore;
+const { boxes } = store;
 
 // close modal - TODO: temp
-const appStore = useCounterStore();
+const appStore = useStore();
 appStore.toggleModal(false);
 
 

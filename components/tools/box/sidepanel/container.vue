@@ -1,7 +1,7 @@
 <!-- 0.1.0 -->
 <script setup lang="ts">
 // ------------- Hooks
-const toolStore = useCounterStoreTools();
+// const store = useStoreTools();
 
 // ------------- Data
 const collapse = ref(false);

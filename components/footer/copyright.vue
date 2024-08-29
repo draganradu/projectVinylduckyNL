@@ -8,7 +8,7 @@ const data = {
   CVf: "en/cv/frontend",
 }
 
-const storage = useCounterStore();
+const storage = useStore();
 </script>
 
 <template>
