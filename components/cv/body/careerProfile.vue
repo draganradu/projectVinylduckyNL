@@ -5,7 +5,7 @@ const store = cvStore()
 <template>
   <section class="main-body-section">
     <CvBodySectionTitle icon="person-bounding-box" text="Summery" />
-    <p>
+    <p class="text-break-spaces">
       {{ store.getBaseInfo(['sections', 'Summary'], true) }}
     </p>
   </section>

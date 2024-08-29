@@ -17,6 +17,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 .title {
   .icon {
+    -webkit-print-color-adjust: exact;
     background-color: black;
     color: white;
     padding-left: 10px;

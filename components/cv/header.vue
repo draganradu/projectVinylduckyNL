@@ -12,7 +12,7 @@ const { inputData } = store
 </script>
 
 <template>
-  <div class="container vb-p-b-1">
+  <div class="container vb-p-b-1 no-print">
     <div class="d-flex justify-content-between align-items-center">
       <VdDropdown />
       <BootstrapIcon :name="showPanel ? `caret-up-square` : `caret-down-square`" class="vb-p-l-1"

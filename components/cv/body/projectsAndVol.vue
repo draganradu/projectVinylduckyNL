@@ -6,7 +6,7 @@ const outputData = store.getBaseInfo(['sections', 'Projects'])
 
 <template>
   <section>
-    <CvBodySectionTitle icon="book-half" text="Projects" />
+    <CvBodySectionTitle icon="cpu" text="Projects" />
     <p v-if="outputData.length > 0">
       Summarise your career here lorem ipsum dolor sit amet, consectetuer adipiscing elit. You can download this free
       resume/CV template here. Aenean commodo ligula eget dolor aenean massa. Cum sociis natoque penatibus et magnis dis

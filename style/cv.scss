@@ -1,6 +1,9 @@
 // variables
 $background-color: #f5f5f5;
 $cv-color: #ffffff;
+$padding-horizontal: 20px;
+$padding-vertical: 30px;
+
 
 #cv {
 
@@ -62,6 +65,9 @@ $cv-color: #ffffff;
 
   #sidebar-image {
     background-color: rgba(0, 0, 0, 0.2);
+    margin: 0;
+
+    padding: $padding-horizontal $padding-vertical;
 
     img {
       width: 150px;
@@ -86,11 +92,16 @@ $cv-color: #ffffff;
   }
 }
 
+.frontend#cv .sidebar-color{
+  background-color: #abdda4!important;
+}
+
 #cv {
 
   // general section
   section {
-    padding: 30px 20px;
+    padding: 0px $padding-horizontal;
+    margin:  $padding-vertical 0px;
 
     h3 {
       font-size: 16px;
@@ -142,20 +153,7 @@ $cv-color: #ffffff;
   }
 }
 
-#cv {
-
-  // // general
-  // .main-body-section {
-  //   .title {
-  //     .icon {
-  //       font-size: 0.5em;
-  //       $size: 0.6em;
-  //       $ratio: 0.7441;
-  //       background-color: red;
-  //       padding: $size*$ratio $size;
-  //       border-radius: 100%;
-
-  //     }
-  //   }
-  // }
+#cv section:last-child {
+  margin-bottom: 0px;
+  padding-bottom: $padding-vertical;
 }

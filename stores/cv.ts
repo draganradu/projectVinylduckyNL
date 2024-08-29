@@ -15,15 +15,7 @@ export type cvStore = {
   sections: {
     Summary: { [key: string]: string[] },
     Experience: {
-      [key in CvQuery]: {
-        company: string,
-        type: string,
-        position: string | string[],
-        where: string,
-        when: [number | [number, number], number | [number, number]],
-        description: string | string[],
-        skills: string[]
-      }[]
+      [key in CvQuery]: CvExperience[]
     },
     Projects: {
       [key in CvQuery]: {}[]
@@ -83,7 +75,7 @@ export const cvStore = defineStore({
         [CvQuery.scrum]: ["Building Bikes", "Fixing things"]
       },
       sections: {
-        Summary: {
+        "Summary": {
           [CvQuery.frontend]: [
             mkCvData.Summary[CvQuery.frontend][0],
             mkCvData.Summary[CvQuery.frontend][1],
@@ -117,66 +109,8 @@ export const cvStore = defineStore({
           },
         ],
         "Experience": {
-          [CvQuery.frontend]: [
-            {
-              company: "vinylDucky.nl",
-              type: "ZZP",
-              position: "Scrum Master",
-              where: "Eindhoven, NL",
-              when: [[2023, 10], 0],
-              description: ["A", "B", "C"],
-              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
-            },
-            {
-              company: "Onera Health",
-              type: "Full-Time",
-              position: ["Scrum Master", "Frontend Developer"],
-              where: "Eindhoven, NL",
-              when: [[2022, 10], [2023, 10]],
-              description: ["B", "C", "C"],
-              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum", "x"],
-            },
-            {
-              company: "Meditools",
-              type: "ZZP",
-              position: ["Scrum Master", "Full Stack Developer"],
-              where: "'s-Hertogenbosch, Netherlands",
-              when: [[2021, 2], [2022, 9]],
-              description: ["B", "C", "C"],
-              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
-            },
-            {
-              company: "2checkout now Verifone",
-              type: "ZZP",
-              position: ["Scrum Master", "Full Stack Developer"],
-              where: "'s-Hertogenbosch, Netherlands",
-              when: [[2021, 2], [2022, 9]],
-              description: ["B", "C", "C"],
-              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
-            },
-            {
-              company: "Techdex",
-              type: "ZZP",
-              position: ["Scrum Master", "Full Stack Developer"],
-              where: "'s-Hertogenbosch, Netherlands",
-              when: [[2021, 2], [2022, 9]],
-              description: ["B", "C", "C"],
-              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum"],
-            },
-
-            {
-              company: "4PSA",
-              type: "ZZP",
-              position: ["Frontend Developer"],
-              where: "'s-Hertogenbosch, Netherlands",
-              when: [[2021, 2], [2022, 9]],
-              description: ["B", "C", "C"],
-              skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving"],
-            },
-          ],
-          [CvQuery.scrum]: [
-
-          ],
+          [CvQuery.frontend]: mkCvData.Experience[CvQuery.frontend],
+          [CvQuery.scrum]: mkCvData.Experience[CvQuery.scrum],
         },
         "Projects": {
           [CvQuery.frontend]: [],

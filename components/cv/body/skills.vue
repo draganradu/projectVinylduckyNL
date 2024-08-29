@@ -5,13 +5,12 @@ const store = cvStore()
 
 <template>
   <section>
-    <CvBodySectionTitle icon="backspace-fill" text="Skills" />
+    <CvBodySectionTitle icon="clipboard-plus" text="Skills" />
     <div v-if="store.getSkills.length > 0">
       {{ store.getSkills.join(", ") }}
     </div>
     <div v-else>
       No Data
     </div>
-    
   </section>
 </template>

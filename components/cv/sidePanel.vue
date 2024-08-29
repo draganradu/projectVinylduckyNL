@@ -1,13 +1,15 @@
 <script setup lang="ts">
 // ------------- Init and Import
+const route = useRoute()
 const store = cvStore()
 const { buildQrData } = storeToRefs(store)
+
 // ------------- Logic
 </script>
 
 <template>
-  <div id="sidebar" class="col-4 text-white">
-    <div class="sidebar-color text-white">
+  <div id="sidebar" :class="['col-4', route.params.cvParam === 'frontend' ? 'text-black' : 'text-white']">
+    <div class="sidebar-color">
       <CvSideBarImage />
       <CvSideBarContact />
       <CvSideBarTopSkills />
@@ -15,6 +17,6 @@ const { buildQrData } = storeToRefs(store)
       <CvSideBarLanguage />
       <CvSideBarInterests />
     </div>
-    <VdQr :text="buildQrData" />
+    <VdQr :text="buildQrData" :color="route.params.cvParam === 'frontend' ? '171-221-164' : '66-168-192'" />
   </div>
 </template>

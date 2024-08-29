@@ -38,7 +38,7 @@ class LogicTime {
       workingString.push(workingDate[0] + " years")
     }
     if(workingDate[1] > 0) {
-      workingString.push(workingDate[1] + " months")
+      workingString.push((workingDate[1] + 1)  + " months")
     }
 
     return workingString.join(", ")
