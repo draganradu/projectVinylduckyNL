@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     autoImports: ['defineStore', 'acceptHMRUpdate'],
   }], "@nuxt/eslint"],
   imports: {
-    dirs: ['stores']
+    dirs: ['stores', 'types']
   },
   i18n: {
     pages: {

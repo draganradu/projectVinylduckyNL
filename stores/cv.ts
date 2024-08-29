@@ -1,10 +1,5 @@
 import _ from 'underscore'
 
-export enum CVquery {
-  frontend = 'frontend',
-  scrum = 'scrum',
-}
-
 export type cvStore = {
   personalInfo: {
     image: string,
@@ -20,7 +15,7 @@ export type cvStore = {
   sections: {
     Summary: { [key: string]: string[] },
     Experience: {
-      [key in CVquery]: {
+      [key in CvQuery]: {
         company: string,
         type: string,
         position: string | string[],
@@ -31,7 +26,7 @@ export type cvStore = {
       }[]
     },
     Projects: {
-      [key in CVquery]: {}[]
+      [key in CvQuery]: {}[]
     },
     Education: {
       what: string,
@@ -41,7 +36,7 @@ export type cvStore = {
       verboseMin?: number,
     }[],
   },
-  currentQuery: CVquery | "",
+  currentQuery: CvQuery | "",
   verbose: {
     data: string[],
     level: number,
@@ -49,18 +44,6 @@ export type cvStore = {
   inputData: {
     [key: string]: string,
   },
-}
-
-type cvStrings = {
-  [CVquery.frontend]?: string | string[],
-  [CVquery.scrum]: string | string[],
-} | {
-  [CVquery.frontend]: string | string[],
-  [CVquery.scrum]?: string | string[],
-}
-
-export type cvSections = {
-
 }
 
 export const cvStore = defineStore({
@@ -71,8 +54,8 @@ export const cvStore = defineStore({
         image: "/img/radu-dragan-aurel-scrum-frontend-developer.jpg",
         name: "Radu Dragan",
         jobTitle: {
-          [CVquery.frontend]: "Frontend Developer",
-          [CVquery.scrum]: "Scrum Master"
+          [CvQuery.frontend]: "Frontend Developer",
+          [CvQuery.scrum]: "Scrum Master"
         },
         location: "Eindhoven Netherlands",
         contact: {
@@ -92,24 +75,24 @@ export const cvStore = defineStore({
         }
       },
       topSkills: {
-        [CVquery.frontend]: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum", "UI/UX Design"],
-        [CVquery.scrum]: ["Scrum Master", "Problem solving", "Development thinking", "Design thinking"]
+        [CvQuery.frontend]: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving", "Agile Scrum", "UI/UX Design"],
+        [CvQuery.scrum]: ["Scrum Master", "Problem solving", "Development thinking", "Design thinking"]
       },
       interests: {
-        [CVquery.frontend]: ["Building Cargo Bikes", "Kayaking", "DIY", "traveling"],
-        [CVquery.scrum]: ["Building Bikes", "Fixing things"]
+        [CvQuery.frontend]: ["Building Cargo Bikes", "Kayaking", "DIY", "traveling"],
+        [CvQuery.scrum]: ["Building Bikes", "Fixing things"]
       },
       sections: {
         Summary: {
-          [CVquery.frontend]: [
-            "I am a Frontend Developer with over 10 years of experience, I specialize in Vue/Nuxt, but I do not shy away from the occasional React or Typescript project. On the backend, I am a NodeJS developer to the bitter end. Just because I can share types between reports. On the management side, I am holding an up to date PSM and SAFe 6.1 certifications. One of my proudest achievements is leading a project that positioned my startup as a semifinalist in the Preactilerator Chivas the Venture in 2016, where my partner became a TEDx speaker.",
-            "I am a Frontend Developer with over 10 years of experience, I specialize in Vue/Nuxt, but I do not shy away from the occasional React or Typescript project. On the backend, I am a NodeJS developer to the bitter end. Just because I can share types between reports. On the management side, I am holding an up to date PSM and SAFe 6.1 certifications. Colleagues often describe me as a builder of innovative digital solutions, and an effective organizer. Someone who can develop MVPs, learn from them and create plans for scaling. I understand the importance of delivering and testing features with real users in increments. One of my proudest achievements is leading a project that positioned my startup as a semifinalist in the Preactilerator Chivas the Venture in 2016, where my partner became a TEDx speaker. I am grateful for the opportunity to work with amazing international teams on various projects, from financial software in fintech companies like Verifone to medical hardware with Onera Health, and AI for health medical devices. I have learned that the greatest asset is the team.",
-            "I am a Frontend Developer with over 10 years of experience, I am a big fan of Vue 3/Nuxt, but I do not shy away from the occasional React or Typescript project. On the backend, I am a NodeJS developer to the bitter end. Just because I can share types between Git reports. On the management side, I am holding an up to date PSM and SAFe 6.1 certifications. Colleagues often describe me as a builder of innovative digital solutions, and an effective organizer. Someone who can develop MVPs, learn from them and create plans for scaling. I understand the importance of delivering and testing features with real users in increments. By day, I am a dedicated Developer; by night, I build startups. One of my proudest achievements is leading a project that positioned my startup as a semifinalist in the Preactilerator Chivas the Venture in 2016, where my partner became a TEDx speaker. I am grateful for the opportunity to work with amazing international teams on various projects, from financial software in fintech companies like Verifone to medical hardware with Onera Health, and AI for health medical devices. I have learned that the greatest asset is the team. As a Senior Developer, I am dedicated to creating and mentoring teams to achieve their highest potential. While I recognize my limitations, I always focus on fostering a collaborative and productive environment, delivering high-quality code in testable increments, and leveraging continuous integration pipelines to better the deployment. My main motivation is to create the best experience for my clients. I am excited to work with you on your next project.",
+          [CvQuery.frontend]: [
+            mkCvData.Summary[CvQuery.frontend][0],
+            mkCvData.Summary[CvQuery.frontend][1],
+            mkCvData.Summary[CvQuery.frontend][2]
           ],
-          [CVquery.scrum]: [
-            "I am a Scrum Master with over 5 years of experience, holding PSM and SAFe 6.1 certifications. With a solid background in software development spanning more than 10 years, I transitioned into the Scrum Master role after earning my Master's in Business from the Polytechnic University of Bucharest. Colleagues often describe me as a builder of innovative digital solutions, an effective organizer, and someone who can develop MVPs, learn from them, and create plans for scaling. I understand the importance of delivering and testing features with real users in increments. By day, I am a dedicated Scrum Master; by night, I build startups. One of my proudest achievements is leading a project that positioned my startup as a semifinalist in the Preactilerator Chivas the Venture in 2016, where my partner became a TEDx speaker. I am grateful for the opportunity to work with amazing international teams on various projects, from financial software in fintech companies like Verifone, to medical hardware with Onera Health, and AI for health medical devices. I have learned that the greatest asset is the team. As a Scrum Master, I am dedicated to creating and mentoring teams to achieve their highest potential. While I recognize my limitations, I always focus on fostering a collaborative and productive environment, delivering high-quality code in testable increments, and leveraging continuous integration pipelines.",
-            "a bit longer scrum",
-            "superlong scrum",
+          [CvQuery.scrum]: [
+            mkCvData.Summary[CvQuery.frontend][0],
+            mkCvData.Summary[CvQuery.frontend][1],
+            mkCvData.Summary[CvQuery.frontend][3],
           ]
         },
         "Education": [
@@ -134,7 +117,7 @@ export const cvStore = defineStore({
           },
         ],
         "Experience": {
-          [CVquery.frontend]: [
+          [CvQuery.frontend]: [
             {
               company: "vinylDucky.nl",
               type: "ZZP",
@@ -191,13 +174,13 @@ export const cvStore = defineStore({
               skills: ["Vue/Nuxt", "Javascript/Typescript", "Problem solving"],
             },
           ],
-          [CVquery.scrum]: [
+          [CvQuery.scrum]: [
 
           ],
         },
         "Projects": {
-          [CVquery.frontend]: [],
-          [CVquery.scrum]: [
+          [CvQuery.frontend]: [],
+          [CvQuery.scrum]: [
 
           ],
         },
