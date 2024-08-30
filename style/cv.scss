@@ -40,6 +40,10 @@ $padding-vertical: 30px;
   .no-print {
     display: none ! important;
   }
+
+  .nuxt-devtools-panel {
+    display: none ! important;
+  }
 }
 
 #cv {

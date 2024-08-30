@@ -35,7 +35,7 @@ useSeoMeta(
 </script>
 
 <template>
-  <div id="cv" :class="route.params.cvParam" v-show="appStore.currentQuery">
+  <div id="cv" :class="[route.params.cvParam, 'verbose-' + appStore.verbose.level ]" v-show="appStore.currentQuery">
     <div class="background pt-5">
       <CvHeader />
       <div class="container ">

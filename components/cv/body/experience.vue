@@ -56,11 +56,11 @@ const outputData = store.getBaseInfo(['sections', 'Experience'])
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
+
 .ex-line {
   margin-bottom: 20px;
-  break-inside: avoid;
-
   padding-bottom: 20px;
 
 
@@ -74,12 +74,19 @@ const outputData = store.getBaseInfo(['sections', 'Experience'])
   }
 }
 
+.verbose-0, .verbose-1 {
+  .ex-line {
+    break-inside: avoid;
+  }
+}
+
+
 @page {
   size: auto;
   margin: 70px 0mm 25px 25px;
 }
 
 @page :first {
-  margin: 0mm 0mm 0mm 25px;
+  margin: 0mm 0mm 10mm 25px;
 }
 </style>

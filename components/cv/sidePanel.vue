@@ -8,7 +8,7 @@ const { buildQrData } = storeToRefs(store)
 </script>
 
 <template>
-  <div id="sidebar" :class="['col-4', route.params.cvParam === 'frontend' ? 'text-black' : 'text-white']">
+  <div id="sidebar" :class="['col-4', route.params.cvParam === 'frontend' ? 'text-black' : 'text-white']" v-show="store.verbose.level !== 3">
     <div class="sidebar-color">
       <CvSideBarImage />
       <CvSideBarContact />

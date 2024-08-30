@@ -48,7 +48,7 @@ export const cvStore = defineStore({
         name: "Radu Dragan",
         jobTitle: {
           [CvQuery.frontend]: "Frontend Developer",
-          [CvQuery.scrum]: "Scrum Master"
+          [CvQuery.scrum]: "Scrum Master | PSM | SAFe 6.1",
         },
         location: "Eindhoven Netherlands",
         contact: {
@@ -86,7 +86,7 @@ export const cvStore = defineStore({
           [CvQuery.scrum]: [
             mkCvData.Summary[CvQuery.frontend][0],
             mkCvData.Summary[CvQuery.frontend][1],
-            mkCvData.Summary[CvQuery.frontend][3],
+            mkCvData.Summary[CvQuery.frontend][2],
           ]
         },
         "Education": [
@@ -173,9 +173,6 @@ export const cvStore = defineStore({
       const date = new Date();
       return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
     },
-
-
-
 
     generateID() {
       return () => {
