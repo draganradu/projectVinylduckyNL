@@ -6,6 +6,7 @@ export type cvStore = {
     name: string,
     jobTitle: cvStrings,
     location: string,
+    zipCode: string,
     contact: { [key: string]: string },
     certifications: string[],
     language: { [key: string]: string },
@@ -51,6 +52,7 @@ export const cvStore = defineStore({
           [CvQuery.scrum]: "Scrum Master | PSM | SAFe 6.1",
         },
         location: "Eindhoven Netherlands",
+        zipCode: "5654 DJ",
         contact: {
           email: "radu.dragan@vinylducky.nl",
           phone: "0648459980",
@@ -84,9 +86,9 @@ export const cvStore = defineStore({
             mkCvData.Summary[CvQuery.frontend][2]
           ],
           [CvQuery.scrum]: [
-            mkCvData.Summary[CvQuery.frontend][0],
-            mkCvData.Summary[CvQuery.frontend][1],
-            mkCvData.Summary[CvQuery.frontend][2],
+            mkCvData.Summary[CvQuery.scrum][0],
+            mkCvData.Summary[CvQuery.scrum][1],
+            mkCvData.Summary[CvQuery.scrum][2],
           ]
         },
         "Education": [
@@ -121,7 +123,7 @@ export const cvStore = defineStore({
           ],
         },
       },
-      currentQuery: "",
+      currentQuery: CvQuery.scrum,
       verbose: {
         data: [
           "a bit",
@@ -173,6 +175,7 @@ export const cvStore = defineStore({
       const date = new Date();
       return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
     },
+    
 
     generateID() {
       return () => {
