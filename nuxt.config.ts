@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    OPEN_API_KEY: process.env.OPEN_API_KEY
+  },
   devtools: { enabled: true },
   css: [
     'bootstrap/dist/css/bootstrap.min.css',
